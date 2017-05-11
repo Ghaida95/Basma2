@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ik-jl-6wU">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="www.Brushez.com-Boahmed Alhour.ttf">
+            <string>Boahmed-Alhour</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ekC-e0-Vbq">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" id="5Ik-jl-6wU" customClass="ViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mnt-Tq-MjT"/>
+                        <viewControllerLayoutGuide type="bottom" id="heP-8T-SDv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LGF-B6-trL">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parent11" translatesAutoresizingMaskIntoConstraints="NO" id="qgw-id-ieH">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="الرقم السري" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ApM-DL-gqU">
+                                <rect key="frame" x="373" y="279" width="278" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="إعادة كتابة الرقم السري" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-ck-f0O">
+                                <rect key="frame" x="373" y="326" width="278" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I30-rv-ldf" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="466" y="394" width="93" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900354385376" green="0.19306391477584839" blue="0.64660298824310303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="26"/>
+                                <state key="normal" title="التالي">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="AfterEnterPasscodeNextButtonPressed:" destination="5Ik-jl-6wU" eventType="touchUpInside" id="spf-qp-Vly"/>
+                                    <segue destination="hTd-Xv-Jr5" kind="show" id="YXt-Yg-tIO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qgw-id-ieH" firstAttribute="leading" secondItem="LGF-B6-trL" secondAttribute="leading" id="4hd-oF-vGl"/>
+                            <constraint firstAttribute="trailing" secondItem="qgw-id-ieH" secondAttribute="trailing" id="C35-XB-ZeT"/>
+                            <constraint firstItem="heP-8T-SDv" firstAttribute="top" secondItem="qgw-id-ieH" secondAttribute="bottom" id="E8b-Wa-6av"/>
+                            <constraint firstItem="qgw-id-ieH" firstAttribute="top" secondItem="LGF-B6-trL" secondAttribute="top" id="WUV-58-J48"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="NN2-Sw-hE4"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="FirstPasscodeTextField" destination="ApM-DL-gqU" id="beT-2G-fqu"/>
+                        <outlet property="SecondPasscodeTextField" destination="bgf-ck-f0O" id="dO2-K9-1fW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ic2-sK-bDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.56661786237188" y="-676.7578125"/>
+        </scene>
+        <!--Connect View Controller-->
+        <scene sceneID="qfa-rm-bcm">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" id="hTd-Xv-Jr5" customClass="ConnectViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JC0-Dm-4Jf"/>
+                        <viewControllerLayoutGuide type="bottom" id="mSO-zf-8yQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r2p-YZ-SnI">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="con1" translatesAutoresizingMaskIntoConstraints="NO" id="zVh-Tu-oZx">
+                                <rect key="frame" x="0.0" y="1" width="1024" height="724"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzP-zs-F4O">
+                                <rect key="frame" x="518" y="0.0" width="506" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="الرمز" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hld-9Q-Zbl">
+                                <rect key="frame" x="441" y="273" width="142" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-Va-O4k" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="466" y="327" width="93" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900354385376" green="0.19306391477584839" blue="0.64660298824310303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="26"/>
+                                <state key="normal" title="الاتصال">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ConnectClick:" destination="hTd-Xv-Jr5" eventType="touchUpInside" id="Io6-Wk-5mi"/>
+                                    <segue destination="1DX-Cg-yUB" kind="show" id="56v-23-izX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zVh-Tu-oZx" firstAttribute="leading" secondItem="r2p-YZ-SnI" secondAttribute="leading" id="3qa-4e-Mwz"/>
+                            <constraint firstAttribute="trailing" secondItem="zVh-Tu-oZx" secondAttribute="trailing" id="AAU-Ta-6Cp"/>
+                            <constraint firstItem="zVh-Tu-oZx" firstAttribute="top" secondItem="r2p-YZ-SnI" secondAttribute="top" id="ZQl-TY-mlh"/>
+                            <constraint firstItem="mSO-zf-8yQ" firstAttribute="top" secondItem="zVh-Tu-oZx" secondAttribute="bottom" id="uUc-ch-SPU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CodeTextField" destination="hld-9Q-Zbl" id="m1p-oH-bTA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCC-ag-4of" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959.76562499999989" y="-677.34375"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="acF-VQ-3FR">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" id="1DX-Cg-yUB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DP8-qE-QQw"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfy-QX-5gS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kKW-AC-8E0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="con2" translatesAutoresizingMaskIntoConstraints="NO" id="Oa9-qI-IZA">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uud-Wf-rB3">
+                                <rect key="frame" x="518" y="0.0" width="506" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="SAT-SK-duf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-fw-Coi" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="66" y="633" width="305" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900354385376" green="0.19306391477584839" blue="0.64660298824310303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="33"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="الذهاب إلى لوحة التحكم">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="pvm-Ev-sso" kind="show" id="J6I-XT-NRZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oa9-qI-IZA" firstAttribute="top" secondItem="kKW-AC-8E0" secondAttribute="top" id="Dl8-7g-T01"/>
+                            <constraint firstItem="Oa9-qI-IZA" firstAttribute="leading" secondItem="kKW-AC-8E0" secondAttribute="leading" id="KHY-aD-5LT"/>
+                            <constraint firstItem="Oa9-qI-IZA" firstAttribute="leading" secondItem="kKW-AC-8E0" secondAttribute="leading" id="STQ-So-Ewd"/>
+                            <constraint firstItem="nfy-QX-5gS" firstAttribute="top" secondItem="Oa9-qI-IZA" secondAttribute="bottom" id="UF0-aJ-yQd"/>
+                            <constraint firstAttribute="trailing" secondItem="Oa9-qI-IZA" secondAttribute="trailing" id="UUn-lU-Ysg"/>
+                            <constraint firstItem="Oa9-qI-IZA" firstAttribute="top" secondItem="kKW-AC-8E0" secondAttribute="top" id="bWA-cq-PWj"/>
+                            <constraint firstItem="nfy-QX-5gS" firstAttribute="top" secondItem="Oa9-qI-IZA" secondAttribute="bottom" id="qwY-48-baX"/>
+                            <constraint firstAttribute="trailing" secondItem="Oa9-qI-IZA" secondAttribute="trailing" id="rrk-7x-0op"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJf-bL-VY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.49218749999989" y="141.40625"/>
+        </scene>
+        <!--Story Controller-->
+        <scene sceneID="BZB-xg-2hN">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" id="thc-sd-9Tx" customClass="StoryController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t7Q-Il-MMW"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgv-Fz-2BL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rXW-zU-pQj">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-1I-o3A">
+                                <rect key="frame" x="0.0" y="0.0" width="506" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="BqG-XR-apP">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Rv-ZG-ph0" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="53" y="666" width="123" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="العودة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="nVr-I2-eZc" kind="show" id="eMH-j7-aC9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTy-ep-dRI">
+                                <rect key="frame" x="876" y="615" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="rightArrow"/>
+                                <connections>
+                                    <action selector="rightPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="p9I-WR-1L2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="kTy-ep-dRI" id="kDk-Zg-9Du"/>
+                        <outlet property="storyImg" destination="BqG-XR-apP" id="YQZ-eF-tsK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3M-8e-uwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1431.4453125" y="1593.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PTB-bb-Z77">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" id="FQ1-Sk-J2j" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tVO-ev-Fb5"/>
+                        <viewControllerLayoutGuide type="bottom" id="rri-1U-yAP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bZl-CQ-my9">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storieslocked" translatesAutoresizingMaskIntoConstraints="NO" id="jdq-iC-9rR">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="21y-3t-Ikh" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="59" y="664" width="123" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="العودة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="nVr-I2-eZc" kind="show" id="oA4-tn-G6x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otb-CE-Sf5">
+                                <rect key="frame" x="0.0" y="0.0" width="493" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ParentGray"/>
+                                <connections>
+                                    <segue destination="bec-Bw-AlY" kind="show" id="hJS-4X-4hY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jdq-iC-9rR" firstAttribute="leading" secondItem="bZl-CQ-my9" secondAttribute="leading" id="2UZ-bU-2xT"/>
+                            <constraint firstItem="jdq-iC-9rR" firstAttribute="top" secondItem="bZl-CQ-my9" secondAttribute="top" id="6kQ-Po-ay7"/>
+                            <constraint firstItem="rri-1U-yAP" firstAttribute="top" secondItem="jdq-iC-9rR" secondAttribute="bottom" id="sq1-Kn-1Bo"/>
+                            <constraint firstAttribute="trailing" secondItem="jdq-iC-9rR" secondAttribute="trailing" id="yS6-rQ-9ps"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wH-h7-uwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1358.203125" y="2404.6875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jg2-OU-6re">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" id="nVr-I2-eZc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a4G-0C-ecl"/>
+                        <viewControllerLayoutGuide type="bottom" id="yC1-dy-99U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J0C-o4-Lmw">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storiesmain" translatesAutoresizingMaskIntoConstraints="NO" id="ZqV-i3-e1e">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Oy7-V6-GCp" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="56" y="653" width="123" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="العودة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="Md3-NS-2jn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1QN-xG-1Mf" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="56" y="323" width="197" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="46"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="سباق الغابة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="thc-sd-9Tx" kind="show" id="yX0-wV-Wvc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-EE-mQ8" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="340" y="323" width="197" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="46"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FQ1-Sk-J2j" kind="show" id="nwd-D9-PFf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="eLx-rc-uvT" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="340" y="487" width="197" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="46"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FQ1-Sk-J2j" kind="show" id="xYX-rW-1qe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pdx-QI-z44" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="56" y="487" width="197" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="46"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FQ1-Sk-J2j" kind="show" id="66L-EN-BWS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zif-Id-7gG">
+                                <rect key="frame" x="0.0" y="0.0" width="502" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ParentGray"/>
+                                <connections>
+                                    <segue destination="bec-Bw-AlY" kind="show" id="AP2-ex-t4g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZqV-i3-e1e" secondAttribute="trailing" id="1AY-uw-kJU"/>
+                            <constraint firstItem="ZqV-i3-e1e" firstAttribute="leading" secondItem="J0C-o4-Lmw" secondAttribute="leading" id="Huk-cc-slG"/>
+                            <constraint firstItem="ZqV-i3-e1e" firstAttribute="top" secondItem="J0C-o4-Lmw" secondAttribute="top" id="JCa-GC-Vhi"/>
+                            <constraint firstItem="yC1-dy-99U" firstAttribute="top" secondItem="ZqV-i3-e1e" secondAttribute="bottom" id="agc-To-bcq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8r-Ih-tlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-564.2578125" y="1597.65625"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oRk-Mo-0aT">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" id="wS5-Ai-ymw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Vb-go-LAz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bgi-T6-xbs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xvB-wr-9gq">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="childdmain" translatesAutoresizingMaskIntoConstraints="NO" id="VOt-bJ-zeG">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uYU-CB-aG2" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="589" y="119" width="247" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="100"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="أذكار">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Umy-ie-TtO" kind="show" id="6EY-Mf-Xrb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-bl-MZ2" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="20" y="119" width="247" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="100"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="قصة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="nVr-I2-eZc" kind="show" id="0gf-x8-8au"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-Td-5Xg">
+                                <rect key="frame" x="0.0" y="0.0" width="491" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ParentGray"/>
+                                <connections>
+                                    <segue destination="bec-Bw-AlY" kind="show" id="PS5-Ve-SeQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VOt-bJ-zeG" secondAttribute="trailing" id="PzM-ao-1tm"/>
+                            <constraint firstItem="VOt-bJ-zeG" firstAttribute="leading" secondItem="xvB-wr-9gq" secondAttribute="leading" id="U6K-Le-7Hn"/>
+                            <constraint firstItem="VOt-bJ-zeG" firstAttribute="top" secondItem="xvB-wr-9gq" secondAttribute="top" id="sxJ-Ud-3or"/>
+                            <constraint firstItem="Bgi-T6-xbs" firstAttribute="top" secondItem="VOt-bJ-zeG" secondAttribute="bottom" id="yln-IE-GyV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Mf-0B-IJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.75" y="1594.53125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="67f-7i-Rcd">
+            <objects>
+                <viewController id="Umy-ie-TtO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c4V-dk-LHC"/>
+                        <viewControllerLayoutGuide type="bottom" id="pQ6-7j-pKe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dyV-Nw-mtW">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="child2athkar" translatesAutoresizingMaskIntoConstraints="NO" id="6lx-P0-xlz">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Joc-VR-DL5" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="63" y="656" width="123" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="العودة">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="kqd-OV-8iB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLL-hd-DY4">
+                                <rect key="frame" x="-19" y="8" width="545" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ParentGray"/>
+                                <connections>
+                                    <segue destination="bec-Bw-AlY" kind="show" id="Z8X-2l-Cyn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pQ6-7j-pKe" firstAttribute="top" secondItem="6lx-P0-xlz" secondAttribute="bottom" id="1Ds-wg-6Th"/>
+                            <constraint firstItem="6lx-P0-xlz" firstAttribute="leading" secondItem="dyV-Nw-mtW" secondAttribute="leading" id="fK8-z8-GOO"/>
+                            <constraint firstItem="6lx-P0-xlz" firstAttribute="top" secondItem="dyV-Nw-mtW" secondAttribute="top" id="qUb-L1-OMO"/>
+                            <constraint firstAttribute="trailing" secondItem="6lx-P0-xlz" secondAttribute="trailing" id="zJS-FY-EsA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g6Q-Xg-ZwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985.54687499999989" y="1610.9375"/>
+        </scene>
+        <!--Parent Control Panel-->
+        <scene sceneID="t8b-Uz-BSf">
+            <objects>
+                <viewController id="pvm-Ev-sso" customClass="ParentControlPanel" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oIJ-wT-d4Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="YK9-mw-MOH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8OR-SH-eOg">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addchild1" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-LR-LjC">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-d0-MuF">
+                                <rect key="frame" x="613" y="315" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switch1Changed:" destination="pvm-Ev-sso" eventType="valueChanged" id="e0m-Da-DA7"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g7l-rT-imj">
+                                <rect key="frame" x="613" y="407" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switch2Changed:" destination="pvm-Ev-sso" eventType="valueChanged" id="QfW-6B-ydr"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x0G-tg-SWb">
+                                <rect key="frame" x="613" y="502" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switch3Changed:" destination="pvm-Ev-sso" eventType="valueChanged" id="jJx-gf-eQl"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zgN-B8-vLN">
+                                <rect key="frame" x="613" y="592" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switch4Changed:" destination="pvm-Ev-sso" eventType="valueChanged" id="2uv-r2-pI1"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZzJ-G6-Bze">
+                                <rect key="frame" x="613" y="679" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switch5Changed:" destination="pvm-Ev-sso" eventType="valueChanged" id="abP-Vh-N2b"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-TD-bgI">
+                                <rect key="frame" x="543" y="354" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-b7-bsQ">
+                                <rect key="frame" x="543" y="446" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ED-GU-FuO">
+                                <rect key="frame" x="543" y="548" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-fn-4wd">
+                                <rect key="frame" x="543" y="641" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="946-o1-ExT">
+                                <rect key="frame" x="543" y="718" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voR-Hh-hhk">
+                                <rect key="frame" x="362" y="245" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="41"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRF-a4-44S">
+                                <rect key="frame" x="76" y="124" width="99" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="add (1)"/>
+                                <connections>
+                                    <segue destination="e5e-jM-YqX" kind="show" identifier="" id="YYj-Ua-gJ5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR2-OV-bJs">
+                                <rect key="frame" x="71" y="118" width="110" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="edit"/>
+                                <connections>
+                                    <segue destination="e5e-jM-YqX" kind="show" id="Box-fG-Fbl"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-vh-q2E">
+                                <rect key="frame" x="456" y="110" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cty-o7-h62">
+                                <rect key="frame" x="189" y="160" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Test"/>
+                                <connections>
+                                    <action selector="SendTest:" destination="pvm-Ev-sso" eventType="touchUpInside" id="wdL-oe-Hws"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kk-yO-Gj9">
+                                <rect key="frame" x="489" y="-20" width="581" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ChildGray"/>
+                                <connections>
+                                    <action selector="GoToChildViewPressed:" destination="pvm-Ev-sso" eventType="touchUpInside" id="oPF-vY-35N"/>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="MdC-me-tep"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HBK-LR-LjC" secondAttribute="trailing" id="4Hs-ZC-t6y"/>
+                            <constraint firstItem="HBK-LR-LjC" firstAttribute="top" secondItem="8OR-SH-eOg" secondAttribute="top" id="5o3-ST-3t5"/>
+                            <constraint firstAttribute="trailing" secondItem="HBK-LR-LjC" secondAttribute="trailing" id="Z3R-hQ-wKS"/>
+                            <constraint firstItem="HBK-LR-LjC" firstAttribute="leading" secondItem="8OR-SH-eOg" secondAttribute="leading" id="qcN-kD-QMs"/>
+                            <constraint firstItem="HBK-LR-LjC" firstAttribute="leading" secondItem="8OR-SH-eOg" secondAttribute="leading" id="r5v-aW-pns"/>
+                            <constraint firstItem="HBK-LR-LjC" firstAttribute="top" secondItem="8OR-SH-eOg" secondAttribute="top" id="yEr-j0-E4V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AddChildButton" destination="xRF-a4-44S" id="RoN-EE-6xH"/>
+                        <outlet property="AvatarPic" destination="VqO-vh-q2E" id="DLF-eo-HAv"/>
+                        <outlet property="ChildNameInParentLabel" destination="voR-Hh-hhk" id="fR8-d0-zgR"/>
+                        <outlet property="EditChildButton" destination="TR2-OV-bJs" id="IUK-yV-hdJ"/>
+                        <outlet property="datePickerTxt1" destination="aLp-TD-bgI" id="Kah-bB-xK9"/>
+                        <outlet property="datePickerTxt2" destination="rvh-b7-bsQ" id="wGj-Jr-ho7"/>
+                        <outlet property="datePickerTxt3" destination="1ED-GU-FuO" id="smy-iL-2ic"/>
+                        <outlet property="datePickerTxt4" destination="WUn-fn-4wd" id="qL1-bf-obX"/>
+                        <outlet property="datePickerTxt5" destination="946-o1-ExT" id="gow-Qc-nG9"/>
+                        <outlet property="switchBtn1" destination="ZhZ-d0-MuF" id="FSA-Im-RU6"/>
+                        <outlet property="switchBtn2" destination="g7l-rT-imj" id="Pr2-9W-T8o"/>
+                        <outlet property="switchBtn3" destination="x0G-tg-SWb" id="h52-eg-yJC"/>
+                        <outlet property="switchBtn4" destination="zgN-B8-vLN" id="6fu-bK-qKh"/>
+                        <outlet property="switchBtn5" destination="ZzJ-G6-Bze" id="ddH-cn-svd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgJ-Dh-5nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959.17968749999989" y="924.21875"/>
+        </scene>
+        <!--Edit Add Child-->
+        <scene sceneID="Xd0-e8-zfB">
+            <objects>
+                <viewController id="e5e-jM-YqX" customClass="EditAddChild" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q8y-QS-uXk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qy3-70-d3m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uEJ-mP-iLK">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="editadd" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-8w-eyd">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWn-ZM-Isv">
+                                <rect key="frame" x="518" y="0.0" width="506" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DO8-9D-bYY" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="54" y="140" width="135" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900349999995" green="0.19306391480000001" blue="0.64660298819999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="41"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="إلغاء">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="pvm-Ev-sso" kind="show" id="oYh-9V-skj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-Ft-ghy" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="790" y="140" width="135" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900349999995" green="0.19306391480000001" blue="0.64660298819999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="41"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="تعديل">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="EditButtonWasPressed:" destination="e5e-jM-YqX" eventType="touchUpInside" id="G8k-m3-YZe"/>
+                                    <segue destination="pvm-Ev-sso" kind="show" id="gHt-7Z-m7F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="tvv-9Y-9FI" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="655" y="271" width="135" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900349999995" green="0.19306391480000001" blue="0.64660298819999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="41"/>
+                                <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="حفظ">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SaveButtonWasPressed:" destination="e5e-jM-YqX" eventType="touchUpInside" id="BiH-Dl-2Qh"/>
+                                    <segue destination="pvm-Ev-sso" kind="show" id="dv4-Pl-Pcf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="اسم طفلتك" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="heV-Za-lBG">
+                                <rect key="frame" x="313" y="294" width="278" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-cq-XdW">
+                                <rect key="frame" x="576" y="634" width="37" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unchecked"/>
+                                <connections>
+                                    <action selector="avatarTwo:" destination="e5e-jM-YqX" eventType="touchUpInside" id="YWh-3U-NAu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Du0-gr-n24">
+                                <rect key="frame" x="313" y="599" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unchecked"/>
+                                <connections>
+                                    <action selector="avatarO:" destination="e5e-jM-YqX" eventType="touchUpInside" id="AEK-A7-Lpm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgB-xW-Df4">
+                                <rect key="frame" x="839" y="599" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unchecked"/>
+                                <connections>
+                                    <action selector="avatarThree:" destination="e5e-jM-YqX" eventType="touchUpInside" id="brb-WJ-rGO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leading" secondItem="Ufd-8w-eyd" secondAttribute="leading" id="Pow-P3-dmW"/>
+                            <constraint firstItem="Ufd-8w-eyd" firstAttribute="leading" secondItem="uEJ-mP-iLK" secondAttribute="leading" id="jMA-oz-rk7"/>
+                            <constraint firstItem="Ufd-8w-eyd" firstAttribute="top" secondItem="uEJ-mP-iLK" secondAttribute="top" id="jux-sc-bGd"/>
+                            <constraint firstAttribute="trailing" secondItem="Ufd-8w-eyd" secondAttribute="trailing" id="xaa-0A-JRL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Box1" destination="Du0-gr-n24" id="hx7-aR-jKZ"/>
+                        <outlet property="Box2" destination="Tmp-cq-XdW" id="pdd-ds-RiP"/>
+                        <outlet property="Box3" destination="mgB-xW-Df4" id="cLH-cT-ggM"/>
+                        <outlet property="EditButton" destination="ewz-Ft-ghy" id="3v4-r6-qca"/>
+                        <outlet property="SaveChildButton" destination="tvv-9Y-9FI" id="BvN-43-z8W"/>
+                        <outlet property="childName" destination="heV-Za-lBG" id="92L-hZ-mWK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TwH-zF-Bki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.281249999999993" y="782.8125"/>
+        </scene>
+        <!--Check Pass Code-->
+        <scene sceneID="oJ6-3j-GSr">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" id="bec-Bw-AlY" customClass="CheckPassCode" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kfS-5h-akD"/>
+                        <viewControllerLayoutGuide type="bottom" id="RIS-f9-z1h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OZK-tP-Hn1">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code" translatesAutoresizingMaskIntoConstraints="NO" id="vpJ-r3-MbH">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-Lz-FKI" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="466" y="365" width="93" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99535900349999995" green="0.19306391480000001" blue="0.64660298819999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="26"/>
+                                <state key="normal" title="الدخول">
+                                    <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="EnterButtonPressed:" destination="bec-Bw-AlY" eventType="touchUpInside" id="Nha-Ed-xGF"/>
+                                    <segue destination="pvm-Ev-sso" kind="show" id="3Dg-TH-dFz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHq-Pj-4Qf">
+                                <rect key="frame" x="517" y="1" width="506" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ChildGray"/>
+                                <connections>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="ln8-Kd-4rJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="الرقم السري" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q4I-i6-6Mr">
+                                <rect key="frame" x="373" y="288" width="278" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="top" secondItem="OZK-tP-Hn1" secondAttribute="top" id="1CW-A4-SH5"/>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="leading" secondItem="OZK-tP-Hn1" secondAttribute="leading" id="ATq-cK-tKf"/>
+                            <constraint firstItem="RIS-f9-z1h" firstAttribute="top" secondItem="vpJ-r3-MbH" secondAttribute="bottom" id="AbZ-6t-lE4"/>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="leading" secondItem="OZK-tP-Hn1" secondAttribute="leading" id="Dqz-Wh-Soi"/>
+                            <constraint firstAttribute="trailing" secondItem="vpJ-r3-MbH" secondAttribute="trailing" id="I8A-LV-UVk"/>
+                            <constraint firstAttribute="trailing" secondItem="vpJ-r3-MbH" secondAttribute="trailing" id="LOH-MR-rKu"/>
+                            <constraint firstAttribute="trailing" secondItem="vpJ-r3-MbH" secondAttribute="trailing" id="TmG-SD-09T"/>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="top" secondItem="OZK-tP-Hn1" secondAttribute="top" id="VQn-7l-SxZ"/>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="leading" secondItem="OZK-tP-Hn1" secondAttribute="leading" id="WEJ-bc-Cyw"/>
+                            <constraint firstItem="vpJ-r3-MbH" firstAttribute="top" secondItem="OZK-tP-Hn1" secondAttribute="top" id="gpf-Au-rAA"/>
+                            <constraint firstItem="RIS-f9-z1h" firstAttribute="top" secondItem="vpJ-r3-MbH" secondAttribute="bottom" id="oHA-vw-cds"/>
+                            <constraint firstItem="RIS-f9-z1h" firstAttribute="top" secondItem="vpJ-r3-MbH" secondAttribute="bottom" id="qJ0-24-UdO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EnterPassCodeTextField" destination="Q4I-i6-6Mr" id="jlH-k2-IdZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2m-G6-O1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-726" y="784"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1" width="1024" height="768"/>
+        <image name="ChildGray" width="506" height="71"/>
+        <image name="ParentGray" width="491" height="59"/>
+        <image name="add (1)" width="64" height="53"/>
+        <image name="addchild1" width="1024" height="768"/>
+        <image name="child2athkar" width="1024" height="768"/>
+        <image name="childdmain" width="1024" height="768"/>
+        <image name="code" width="1024" height="768"/>
+        <image name="con1" width="1024" height="768"/>
+        <image name="con2" width="1024" height="768"/>
+        <image name="edit" width="79" height="65"/>
+        <image name="editadd" width="1024" height="768"/>
+        <image name="parent11" width="1024" height="768"/>
+        <image name="rightArrow" width="256" height="256"/>
+        <image name="storieslocked" width="1024" height="768"/>
+        <image name="storiesmain" width="1024" height="768"/>
+        <image name="unchecked" width="501" height="501"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xYX-rW-1qe"/>
+        <segue reference="oA4-tn-G6x"/>
+        <segue reference="hJS-4X-4hY"/>
+        <segue reference="SAT-SK-duf"/>
+        <segue reference="J6I-XT-NRZ"/>
+        <segue reference="YYj-Ua-gJ5"/>
+    </inferredMetricsTieBreakers>
+</document>
