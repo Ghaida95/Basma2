@@ -43,7 +43,7 @@ class ConnectViewController: UIViewController,BleManagerDelegate{
             self.present(alert, animated: true, completion: nil)
             
         }else{
-        
+        UserDefaults.standard.set(true,forKey: "isConnectionCodeEntered")
             if BleManagerNew.getInstance().state==CBCentralManagerState.poweredOn {
                 BleManagerNew.getInstance().startScanPeripheral() //step 2 start scanning for Peripheral
             }
