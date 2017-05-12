@@ -16,6 +16,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if UserDefaults.standard.string(forKey: "Passcode") == "" {
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+            
+        }//end first if
+        else if UserDefaults.standard.bool(forKey: "isConnectionCodeEntered") == false {
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ConnectViewController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        }//end second if
+            
+        else if UserDefaults.standard.string(forKey: "Passcode") != "" {
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "childHomeVC")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+            
+        }//end third if
+        else if UserDefaults.standard.bool(forKey: "isConnectionCodeEntered") == true {
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "childHomeVC")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        }//end last if
+        
         return true
     }
 

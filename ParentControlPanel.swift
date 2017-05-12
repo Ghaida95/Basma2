@@ -57,6 +57,8 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     var brushTeethStars = 0
     var kissParentsStars = 0
     var bedtimeStars = 0
+    var childChoice = ""//send from blutooth
+
     
     /*
     @IBAction func SendTest(_ sender: UIButton) {
@@ -76,8 +78,8 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     
     func didReadValueForCharacteristic(_ characteristic: CBCharacteristic){
         if(characteristic.value != nil) {
-            let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
-            print( stringValue)
+             childChoice = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
+            print( childChoice)
         }
     }
     
@@ -214,8 +216,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         let data: [CGFloat] = [CGFloat(morningStars), CGFloat(nightStars), CGFloat(brushTeethStars), CGFloat(kissParentsStars), CGFloat(bedtimeStars)]
         lineChart.addLine(data)
     }
-    
-       ///////backgeound task for first-1- reminder//////////////////
+    ///////backgeound task for first-1- reminder//////////////////
     //to send to blutooth only one
     var reminderFlag1:Bool = true
     var reminderFlag2:Bool = true
@@ -230,7 +231,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         //start time
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction), userInfo: nil, repeats: true)
     }//end startBackgroundTask
-
+    
     //stop Background Task for first reminder
     func stopBackgroundTask() {
         reminderFlag1=false
@@ -258,7 +259,23 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             if(dateFromSystemOne == dateFromUserOne){
                 //send notification to the child by blutooth
                 SendT("W:mo1")
-
+                // loop until recieving input from the sensor
+                while (childChoice=="") {
+                    print("First choice - No input recieved from the sensor") }
+                
+                // take first choice (Right sensor)
+                if (childChoice == "R") {
+                    calculateStars(action: "morningAthkar")
+                    SendT("W:en1")
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "L") {
+                    SendT("W:moNo")
+                }//end while
+                
+                childChoice = ""
+                
                 //datePickerTxt5.text="first" //just for test
                 reminderFlag1=false
             }//second if
@@ -267,9 +284,9 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         print(UserDefaults.standard.string(forKey: "switchBtn1Stat") ?? "No1" )//just for test
         //print(UserDefaults.standard.string(forKey: "switchBtn1Time") ?? "No2")//just for test
     }//end timerAction1
-
+    
     ///////backgeound task for second-2- reminder//////////////////
-   
+    
     func startBackgroundTask2() {
         reminderFlag2=true
         backgroundTask2.startBackgroundTask()
@@ -294,7 +311,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             dateFormatterTwo.timeStyle = .short
             dateFormatterTwo.dateStyle = .none
             let dateFromSystemTwo = dateFormatterTwo.string(from: dateTwo)
-
+            
             print(dateFromSystemTwo+"   system")//for test
             print(dateFromUserTwo!+"    user")//for test
             
@@ -302,8 +319,24 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             if(dateFromSystemTwo == dateFromUserTwo){
                 //send notification to the child by blutooth
                 SendT("W:ev1")
-
-               // datePickerTxt5.text="second" //just for test
+                // loop until recieving input from the sensor
+                while (childChoice=="") {
+                    print("First choice - No input recieved from the sensor") }
+                
+                // take first choice (Right sensor)
+                if (childChoice == "R") {
+                    calculateStars(action: "nightAthkar")
+                    SendT("W:en2")
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "L") {
+                    SendT("W:evNo")
+                }//end while
+                
+                childChoice = ""
+                
+                // datePickerTxt5.text="second" //just for test
                 reminderFlag2=false
             }//second if
         }//first if
@@ -311,7 +344,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         print(UserDefaults.standard.string(forKey: "switchBtn2Stat") ?? "No1" )//just for test
         //print(UserDefaults.standard.string(forKey: "switchBtn2Time") ?? "No2")//just for test
     }//end timerAction2
-
+    
     ///////backgeound task for third-3- reminder//////////////////
     func startBackgroundTask3() {
         reminderFlag3=true
@@ -344,6 +377,22 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             //check if current time equal user input time
             if(dateFromSystemthird == dateFromUserthird){
                 SendT("W:te1")
+                // loop until recieving input from the sensor
+                while (childChoice=="") {
+                    print("First choice - No input recieved from the sensor") }
+                
+                // take first choice (Right sensor)
+                if (childChoice == "R") {
+                    calculateStars(action: "brushingTeeth")
+                    SendT("W:en3")
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "L") {
+                    SendT("W:TeNo")
+                }//end while
+                
+                childChoice = ""
                 //datePickerTxt5.text="third" //just for test
                 reminderFlag3=false
             }//second if
@@ -387,7 +436,23 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             if(dateFromSystemforth == dateFromUserforth){
                 //send notification to the child by blutooth
                 SendT("W:ki1")
-
+                // loop until recieving input from the sensor
+                while (childChoice=="") {
+                    print("First choice - No input recieved from the sensor") }
+                
+                // take first choice (Right sensor)
+                if (childChoice == "R") {
+                    calculateStars(action: "kissingParents")
+                    SendT("W:en4")
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "L") {
+                    SendT("W:KiNo")
+                }//end while
+                
+                childChoice = ""
+                
                 //datePickerTxt5.text="forth" //just for test
                 reminderFlag4=false
             }//second if
@@ -430,8 +495,24 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             //check if current time equal user input time
             if(dateFromSystemfifth == dateFromUserfifth){
                 //send notification to the child by blutooth
-                SendT("W:sl1")
-
+                SendT("W:Sl1")
+                // loop until recieving input from the sensor
+                while (childChoice=="") {
+                    print("First choice - No input recieved from the sensor") }
+                
+                // take first choice (Right sensor)
+                if (childChoice == "R") {
+                    calculateStars(action: "bedtimeAthkar")
+                    SendT("W:slYes")
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "L") {
+                    SendT("W:slNo")
+                }//end while
+                
+                childChoice = ""
+                
                 //datePickerTxt5.text="fifth" //just for test
                 reminderFlag5=false
             }//second if
@@ -471,22 +552,28 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         // set the number of stars that will be displayed on Basma's screen
         if (totalStars == 125) {
             displayedStars = 5
+            SendT("W:5s")//send to wave
             // unlock new story
         }
         else if (totalStars >= 100) {
             displayedStars = 4
+            if(totalStars==100){SendT("W:newS")}//send to wave
         }
         else if (totalStars >= 75) {
             displayedStars = 3
+            if(totalStars==75){SendT("W:newS")}//send to wave
         }
         else if (totalStars >= 50) {
             displayedStars = 2
+            if(totalStars==50){SendT("W:newS")}//send to wave
         }
         else if (totalStars >= 25) {
             displayedStars = 1
+            if(totalStars==25){SendT("W:newS")}//send to wave
         }
             // if its more than 125, reset the number of stars and start again
         else if (totalStars > 125) {
+            
             displayedStars = 0
             totalStars = 1
             morningStars = 0
@@ -527,7 +614,27 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         // call it to display updated values
         updateChart()
         
+        //send number of stars to secreen
+        var starsMsg = ""
         
+        switch displayedStars {
+            
+        case 0 :
+            starsMsg = "S0"
+        case 1 :
+            starsMsg = "S1"
+        case 2 :
+            starsMsg = "S2"
+        case 3 :
+            starsMsg = "S3"
+        case 4 :
+            starsMsg = "S4"
+        case 5 :
+            starsMsg = "S5"
+        default :
+            starsMsg = "S0"
+        }
+        SendT(starsMsg)//send to secreen
     } // end calculateStars method
     
     

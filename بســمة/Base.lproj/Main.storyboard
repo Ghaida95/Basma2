@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ik-jl-6wU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ik-jl-6wU">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,7 +17,7 @@
         <!--View Controller-->
         <scene sceneID="ekC-e0-Vbq">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="5Ik-jl-6wU" customClass="ViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" modalTransitionStyle="crossDissolve" id="5Ik-jl-6wU" customClass="ViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mnt-Tq-MjT"/>
                         <viewControllerLayoutGuide type="bottom" id="heP-8T-SDv"/>
@@ -90,7 +90,7 @@
         <!--Connect View Controller-->
         <scene sceneID="qfa-rm-bcm">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="hTd-Xv-Jr5" customClass="ConnectViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConnectViewController" modalTransitionStyle="crossDissolve" id="hTd-Xv-Jr5" customClass="ConnectViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JC0-Dm-4Jf"/>
                         <viewControllerLayoutGuide type="bottom" id="mSO-zf-8yQ"/>
@@ -461,7 +461,7 @@
         <!--View Controller-->
         <scene sceneID="oRk-Mo-0aT">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="wS5-Ai-ymw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="childHomeVC" modalTransitionStyle="partialCurl" id="wS5-Ai-ymw" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Vb-go-LAz"/>
                         <viewControllerLayoutGuide type="bottom" id="Bgi-T6-xbs"/>
@@ -546,7 +546,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="child2athkar" translatesAutoresizingMaskIntoConstraints="NO" id="6lx-P0-xlz">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Joc-VR-DL5" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
                                 <rect key="frame" x="63" y="656" width="123" height="50"/>
@@ -982,11 +982,11 @@
         <image name="unchecked" width="501" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xYX-rW-1qe"/>
-        <segue reference="oA4-tn-G6x"/>
-        <segue reference="hJS-4X-4hY"/>
-        <segue reference="SAT-SK-duf"/>
         <segue reference="J6I-XT-NRZ"/>
         <segue reference="YYj-Ua-gJ5"/>
+        <segue reference="xYX-rW-1qe"/>
+        <segue reference="0gf-x8-8au"/>
+        <segue reference="kqd-OV-8iB"/>
+        <segue reference="PS5-Ve-SeQ"/>
     </inferredMetricsTieBreakers>
 </document>
