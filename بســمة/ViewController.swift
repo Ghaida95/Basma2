@@ -24,18 +24,7 @@ class ViewController: UIViewController{
         
         
     }
-    
-/*    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        if UserDefaults.standard.string(forKey: "Passcode") == "alaa" {
-            let vc = CheckPassCode()
-            self.present( vc, animated: true , completion: nil)
-        }
-    }*/
 
-    func TestFunc() {
-
-    }
 
     
     

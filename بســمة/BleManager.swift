@@ -264,7 +264,4 @@ class BleManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     
     
     
-    
-    
-    
 }

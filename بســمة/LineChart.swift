@@ -101,9 +101,9 @@ open class LineChart: UIView {
     // values calculated on init
     fileprivate var drawingHeight: CGFloat = 0 {
         didSet {
-            let max = getMaximumValue()
-            let min = getMinimumValue()
-            y.linear = LinearScale(domain: [min, max], range: [0, drawingHeight])
+            let max = 30
+            let min = 0
+            y.linear = LinearScale(domain: [CGFloat(min), CGFloat(max)], range: [0, drawingHeight])
             y.scale = y.linear.scale()
             y.ticks = y.linear.ticks(Int(y.grid.count))
         }

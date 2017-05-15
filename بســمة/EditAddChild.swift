@@ -153,16 +153,14 @@ class EditAddChild: UIViewController {
             UserDefaults.standard.synchronize()
             UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
             UserDefaults.standard.synchronize()
-            /*
-             if delegate != nil{
-             if childName.text != nil{
-             let data = childName.text
-             delegate?.userDidEnterData(data: data!)
-             dismiss(animated: true, completion: nil)
-             }
-             
-             }
-             */
+            //default valuse for stars
+            UserDefaults.standard.set(0, forKey: "totalStars")
+            UserDefaults.standard.set(0, forKey: "morningStars")
+            UserDefaults.standard.set(0, forKey: "nightStars")
+            UserDefaults.standard.set(0, forKey: "brushTeethStars")
+            UserDefaults.standard.set(0, forKey: "kissParentsStars")
+            UserDefaults.standard.set(0, forKey: "bedtimeStars")
+            UserDefaults.standard.set(0, forKey: "displayedStars")
             
             
         }
@@ -205,17 +203,7 @@ class EditAddChild: UIViewController {
             UserDefaults.standard.synchronize()
             UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
             UserDefaults.standard.synchronize()
-            /*
-             if delegate != nil{
-             if childName.text != nil{
-             let data = childName.text
-             delegate?.userDidEnterData(data: data!)
-             dismiss(animated: true, completion: nil)
-             }
-             
-             }
-             */
-            
+
             
         }
     }//end EditButtonWasPressed func

@@ -8,18 +8,20 @@
 
 import Foundation
 import CoreBluetooth
+import UIKit
 
 public class BleManagerNew : NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     var _manager : CBCentralManager?
     var delegate : BleManagerDelegate?
     var characteristicForWrite: CBCharacteristic?
+    var recive = ""
     private(set) var connected = false
-    var state: CBCentralManagerState? {
+    var state: CBManagerState? {
         guard _manager != nil else {
             return nil
         }
-        return CBCentralManagerState(rawValue: (_manager?.state.rawValue)!)
+        return CBManagerState(rawValue: (_manager?.state.rawValue)!)
     }
     private var timeoutMonitor : Timer? /// Timeout monitor of connect to peripheral
     private var interrogateMonitor : Timer? /// Timeout monitor of interrogate the peripheral
@@ -352,7 +354,12 @@ public class BleManagerNew : NSObject, CBCentralManagerDelegate, CBPeripheralDel
             return
         }
         delegate?.didReadValueForCharacteristic?(characteristic)
-        
+        let StringFormatdata = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue)
+        let recive1 = StringFormatdata! as String
+        if(recive1 == "0" || recive1 == "1" || recive1 == "9"){
+            recive = recive1
+            print(recive)
+        }
     }
     
 }

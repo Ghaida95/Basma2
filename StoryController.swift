@@ -4,7 +4,7 @@
 //
 //  Created by Ghada&Hadeel on 5/10/17.
 //  Copyright © 2017 iWAN. All rights reserved.
-//
+// version 5
 
 import Foundation
 import UIKit
@@ -32,95 +32,153 @@ class StoryController: UIViewController, BleManagerDelegate{
     
     var imagesChoice2_b: [String] = ["32b", "33b","34b","35b","36b","37b", "38b","39b","40b","41b","42b","43b","44b","45b","46b","47b","48b","49b"]
     
-    
     var imagePosition = 0
     var currentArray = "imagesArray1"
     var currentImage = ""
-    
-    // changed based on the child choice
-   // var firstChoice = "b"
-    //var secondChoice = "b"
-     var childChoice = ""
-   
+    var childChoice = ""
     @IBOutlet weak var nextButton: UIButton!
+    var timerChild : Timer!
+    var flag = true
     
     @IBAction func rightPressed(_ sender: UIButton) {
         
         
+        switch currentImage {
+        
         // here choose between brance 1-a or 1-b
-        if(currentImage == "22") {
-            // loop until recieving input from the sensor
-            while (childChoice=="") {
-            print("First choice - No input recieved from the sensor") }
+        case "22" :
+            
+            nextButton.isEnabled = false
+            SendText("T")
+            
+            if( flag )
+            {
+            timerChild = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(rightPressed), userInfo: nil, repeats: true)
+            flag = false
+            }
+            
+            childChoice = BleManagerNew.getInstance().recive
+            
+            if ( childChoice == "" || childChoice == "9" ){
+                print("No input recieved")
+                return }
+                
+            // if there's input recieved
+            else {
+                    print("input recieved. Value: " + childChoice)
+                    print("stopping timer")
+                    timerChild.invalidate()
+                    flag = true
+                    nextButton.isEnabled = true
+                }//else
+            
+                // take first choice (Right sensor)
+                if (childChoice == "0") {
+                    currentArray = "imagesChoice1_a"
+                    
+                }
+                    // take first choice (Left sensor)
+                else if (childChoice == "1") {
+                    currentArray = "imagesChoice1_b"
+                }
+                imagePosition = 0
+                childChoice = ""
+                break
+                
+                
+        // check if its one of the two pictures that are the end of the FIRST branch
+        case "24a" :
+                
+                currentArray = "imagesArray2"
+                imagePosition = 0
+                break
+        
+            
+        // check if its one of the two pictures that are the end of the FIRST branch
+        case "28b" :
+                
+                currentArray = "imagesArray2"
+                imagePosition = 0
+                break
+        
+            
+        // here choose between brance 2-a or 2-b
+        case "31" :
+            
+            nextButton.isEnabled = false
+            SendText("T")
+            
+            if( flag )
+            {
+            timerChild = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(rightPressed), userInfo: nil, repeats: true)
+            flag = false
+            }
+            
+            childChoice = BleManagerNew.getInstance().recive
+            
+            if ( childChoice == "" || childChoice == "9" ){
+                print("No input recieved")
+                return }
+                
+            // if there's input recieved
+            else {
+                    print("input recieved. Value: " + childChoice)
+                    print("stopping timer")
+                    timerChild.invalidate()
+                    flag = true
+                    nextButton.isEnabled = true
+            }//else
             
             // take first choice (Right sensor)
-            if (childChoice == "R") {
-                currentArray = "imagesChoice1_a"
+            if (childChoice == "0") {
+                currentArray = "imagesChoice2_a"
+                
             }
-            // take first choice (Left sensor)
-            else if (childChoice == "L") {
-                currentArray = "imagesChoice1_b"
-            }
-            
-            imagePosition = 0
-            childChoice = ""
-        }
-            // check if its one of the two pictures that are the end of the FIRST branch
-        else if (currentImage == "24a") || (currentImage == "28b"){
-            currentArray = "imagesArray2"
-            imagePosition = 0
-            
-        }
-            
-            // here choose between brance 2-a or 2-b
-        else if (currentImage == "31") {
-            
-            // loop until recieving input from the sensor
-            while (childChoice=="") {
-                print("Second choice - No input recieved from the sensor") }
-            
-            
-             // take second choice (Right sensor)
-            if (childChoice == "R") {
-                currentArray = "imagesChoice2_a" }
-            // take second choice (Left sensor)
-            else if (childChoice == "L") {
+                // take first choice (Left sensor)
+            else if (childChoice == "1") {
                 currentArray = "imagesChoice2_b"
             }
             
             imagePosition = 0
             childChoice = ""
+            break
+        
+        
+        // check if its one of the two pictures that are the end of the SECOND branch
+        case "44a" :
             
-        }
-            // check if its one of the two pictures that are the end of the SECOND branch
-        else if (currentImage == "44a") || (currentImage == "49b") {
             currentArray = "imagesArray3"
             imagePosition = 0
+            break
             
-        }
-        else if (currentImage == "53") {
+        // check if its one of the two pictures that are the end of the SECOND branch
+        case "49b" :
+            
+            currentArray = "imagesArray3"
+            imagePosition = 0
+            break
+            
+        case "53" :
             storyImg.isHidden = true
             nextButton.isHidden = true
-            return
+            break
+            
+        // In case its only the next picture
+        default :
+            imagePosition += 1
+            break
             
         }
-            // In case its only the next picture
-        else {
-            imagePosition += 1
-        }
         
-        // method to display the picture
-        changeImage(position: imagePosition, currentArray: currentArray)
-        
+            changeImage(position: imagePosition, currentArray: currentArray)
+
     }
     
     
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        SendText("W:1")
     }
     
     
@@ -152,7 +210,6 @@ class StoryController: UIViewController, BleManagerDelegate{
             
         }
         
-        
         // display image
         storyImg.image = UIImage(named: currentImage);
         
@@ -162,49 +219,22 @@ class StoryController: UIViewController, BleManagerDelegate{
     }
 
     
-    
-    
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func didReadValueForCharacteristic(_ characteristic: CBCharacteristic){
-        if(characteristic.value != nil) {
-            childChoice = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
-            print(childChoice)
-        }
-    }
 
-    @IBAction func testSend(_ sender: Any) {
-        print("SendTestMessage Invoked")
-        let TextData: String
-        TextData="Hi BLE"
-        BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
-    }
-    
     
     // a function for sending text to Basma hardware
     func SendText(_ text: String) {
         print("SendTextMessage Invoked")
+        print(text)
         let TextData: String
         TextData = text
         BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

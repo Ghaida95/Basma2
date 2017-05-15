@@ -43,13 +43,17 @@ class ConnectViewController: UIViewController,BleManagerDelegate{
             self.present(alert, animated: true, completion: nil)
             
         }else{
+            
+            UserDefaults.standard.set(true,forKey: "isConnectionCodeEntered")
         
-            if BleManagerNew.getInstance().state==CBCentralManagerState.poweredOn {
+            if BleManagerNew.getInstance().state==CBManagerState.poweredOn {
                 BleManagerNew.getInstance().startScanPeripheral() //step 2 start scanning for Peripheral
             }
+            
         }
-        
     }
+    
+    
     
     
     //This invoked on step 2
@@ -105,6 +109,10 @@ class ConnectViewController: UIViewController,BleManagerDelegate{
     
     func didConnectedPeripheral(_ connectedPeripheral: CBPeripheral){
         print("Device has been conncted and you can move to the next viewcontroller ")
+        
+
+        
+        
     }
     
     func failToConnectPeripheral(_ peripheral: CBPeripheral, error: Error){

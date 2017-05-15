@@ -4,7 +4,7 @@
 //
 //  Created by ShahadR on 4/14/17.
 //  Copyright © 2017 iWAN. All rights reserved.
-// version 4
+// version 5
 
 import Foundation
 import UIKit
@@ -49,6 +49,8 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     // Chart
     var lineChart: LineChart!
     
+    //var data: [CGFloat] = []
+    
     // stars variables
     var totalStars = 0
     var displayedStars = 0
@@ -57,48 +59,25 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     var brushTeethStars = 0
     var kissParentsStars = 0
     var bedtimeStars = 0
-    
-    /*
-    @IBAction func SendTest(_ sender: UIButton) {
-        print("SendTestMessage Invoked")
-        let TextData: String
-        TextData="Hi BLE"
-        BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
-    } */
+    var childChoice = ""//send from blutooth
+
     
     // a function for sending text to Basma hardware
-    func SendText(_ text: String) {
-        print("SendTextMessage Invoked")
+    func SendT(_ text: String) {
         let TextData: String
         TextData = text
         BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
-    }
+        print("SendTextMessage Invoked-- Msg: "+text)
+
+    }//end sendT func
     
-    func didReadValueForCharacteristic(_ characteristic: CBCharacteristic){
-        if(characteristic.value != nil) {
-            let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
-            print( stringValue)
-        }
-    }
     
 
-
-    
     override func viewDidLoad() {
      super.viewDidLoad()
         BleManagerNew.getInstance().delegate=self
         
-        
-        // set some values for testing only >> DELETE this part later
-        UserDefaults.standard.set(6, forKey: "totalStars")
-        UserDefaults.standard.set(3, forKey: "morningStars")
-        UserDefaults.standard.set(20, forKey: "nightStars")
-        UserDefaults.standard.set(10, forKey: "brushTeethStars")
-        UserDefaults.standard.set(5, forKey: "kissParentsStars")
-        UserDefaults.standard.set(8, forKey: "bedtimeStars")
-        UserDefaults.standard.set(2, forKey: "displayedStars")
-        
-        
+         lineChart = LineChart()
         
         // load stars values
         totalStars = UserDefaults.standard.integer(forKey: "totalStars")
@@ -111,7 +90,12 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         
         
         
+      
+        
         // decide the message to be sent to basma based on number of stars
+        
+        /*
+      //  let displayedStars = UserDefaults.standard.integer(forKey: "displayedStars")
         var starsMsg = ""
         
         switch displayedStars {
@@ -131,9 +115,9 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         default :
             starsMsg = "S0"
         }
-        // call method to display stars in Basma's screen
-      //  SendText(starsMsg)
         
+        SendT(starsMsg) 
+        */
         
         // create chart and view data
        createChart()
@@ -172,7 +156,9 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     
     func createChart() {
         
-        
+        lineChart.clear()
+       
+       // lineChart.clear()
         // Chart Code (Child progress)
         var views: [String: AnyObject] = [:]
         
@@ -180,12 +166,12 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         //   let data: [CGFloat] = [5, 4, 3, 11, 13]
         
         // get the stars values from the local storage to display them in the chart
-        let data: [CGFloat] = [CGFloat(morningStars), CGFloat(nightStars), CGFloat(brushTeethStars), CGFloat(kissParentsStars), CGFloat(bedtimeStars)]
+       let data = [CGFloat(morningStars), CGFloat(nightStars), CGFloat(brushTeethStars), CGFloat(kissParentsStars), CGFloat(bedtimeStars)]
         
         // simple line with custom x axis labels
         //let xLabels: [String] = ["صباح", "مساء", "تفريش الأسنان", "تقبيل الوالدين", "أذكار النوم"]
         
-        lineChart = LineChart()
+        
         lineChart.animation.enabled = true
         lineChart.area = false
         lineChart.x.labels.visible = false
@@ -209,11 +195,11 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     }
     
     // function to update the chart when the stars values change
-    func updateChart()  {
+   /* func updateChart()  {
         // get the stars values from the local storage to display them in the chart
-        let data: [CGFloat] = [CGFloat(morningStars), CGFloat(nightStars), CGFloat(brushTeethStars), CGFloat(kissParentsStars), CGFloat(bedtimeStars)]
+         data = [CGFloat(morningStars), CGFloat(nightStars), CGFloat(brushTeethStars), CGFloat(kissParentsStars), CGFloat(bedtimeStars)]
         lineChart.addLine(data)
-    }
+    }*/
     
        ///////backgeound task for first-1- reminder//////////////////
     //to send to blutooth only one
@@ -223,25 +209,28 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     var reminderFlag4:Bool = true
     var reminderFlag5:Bool = true
     //start Background Task for first reminder
+    var flagT1 = true
     func startBackgroundTask() {
+        flagT1 = true
         reminderFlag1=true
         //start Background Task
         backgroundTask.startBackgroundTask()
         //start time
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.timerAction), userInfo: nil, repeats: true)
     }//end startBackgroundTask
-
+    
     //stop Background Task for first reminder
     func stopBackgroundTask() {
         reminderFlag1=false
         timer.invalidate()//stop timer
         backgroundTask.stopBackgroundTask()//stop background task
     }//end stopBackgroundTask
-    
+
     //this is the function that will be called in the background every second when first reminder enabeled
+
     func timerAction() {
         if ((UserDefaults.standard.string(forKey: "switchBtn1Stat") == "on") && (datePickerTxt1.text != "") &&
-            (UserDefaults.standard.string(forKey: "switchBtn1Time") != "") && (reminderFlag1)) {
+            (UserDefaults.standard.string(forKey: "switchBtn1Time") != "")) {
             //to get user input
             let dateFromUserOne = datePickerTxt1.text
             //to get current date
@@ -256,24 +245,55 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             
             //check if current time equal user input time
             if(dateFromSystemOne == dateFromUserOne){
-                //send notification to the child by blutooth
-                SendT("W:mo1")
 
-                //datePickerTxt5.text="first" //just for test
-                reminderFlag1=false
+                if(reminderFlag1){
+                    print("true")
+                    SendT("W:mo1")
+                    reminderFlag1 = false}
+                
+                sleep(4)
+                
+                    childChoice = BleManagerNew.getInstance().recive
+                    print("Input recieved " + childChoice)
+
+                    if ( (childChoice == "" || childChoice == "9") && flagT1 ){
+                        SendT("T")
+                        print("No input recieved")
+                        flagT1 = false
+                        return}//end if
+                    else{
+                        print("input recieved. Value: " + childChoice)
+                        if (childChoice == "0") {
+                            SendT("W:en1")
+                            sleep(4)
+                            calculateStars(action: "morningAthkar")
+                        }//end if
+                            // take first choice (Left sensor)
+                        else if (childChoice == "1") {
+                            SendT("W:moNo")
+                        }//end else if
+                }//end else
+                
+                childChoice = ""
             }//second if
+            if( dateFromSystemOne != dateFromUserOne && flagT1 == false && reminderFlag1 == false ){
+                reminderFlag1 = true
+                flagT1 = true
+            }
         }//first if
+
         print("SomeCoolTaskRunning.....1")//just for test
         print(UserDefaults.standard.string(forKey: "switchBtn1Stat") ?? "No1" )//just for test
         //print(UserDefaults.standard.string(forKey: "switchBtn1Time") ?? "No2")//just for test
     }//end timerAction1
-
+    
     ///////backgeound task for second-2- reminder//////////////////
-   
+    var flagT2 = true
     func startBackgroundTask2() {
-        reminderFlag2=true
+        flagT2 = true
+        reminderFlag2 = true
         backgroundTask2.startBackgroundTask()
-        timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction2), userInfo: nil, repeats: true)
+        timer2 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.timerAction2), userInfo: nil, repeats: true)
     }//end startBackgroundTask2
     
     func stopBackgroundTask2() {
@@ -285,7 +305,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     func timerAction2() {
         
         if ((UserDefaults.standard.string(forKey: "switchBtn2Stat") == "on") && (datePickerTxt2.text != "") &&
-            (UserDefaults.standard.string(forKey: "switchBtn2Time") != "") && (reminderFlag2)) {
+            (UserDefaults.standard.string(forKey: "switchBtn2Time") != "") ) {
             //to get user input
             let dateFromUserTwo = datePickerTxt2.text
             //to get current date
@@ -294,29 +314,60 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             dateFormatterTwo.timeStyle = .short
             dateFormatterTwo.dateStyle = .none
             let dateFromSystemTwo = dateFormatterTwo.string(from: dateTwo)
-
+            
             print(dateFromSystemTwo+"   system")//for test
             print(dateFromUserTwo!+"    user")//for test
             
             //check if current time equal user input time
             if(dateFromSystemTwo == dateFromUserTwo){
                 //send notification to the child by blutooth
-                SendT("W:ev1")
-
-               // datePickerTxt5.text="second" //just for test
-                reminderFlag2=false
+                if(reminderFlag2){
+                    print("true2")
+                    SendT("W:ev1")
+                    reminderFlag2 = false}
+                
+                sleep(3)
+                
+                childChoice = BleManagerNew.getInstance().recive
+                print("Input recieved " + childChoice)
+                
+                if ( (childChoice == "" || childChoice == "9") && flagT2 ){
+                    SendT("T")
+                    print("No input recieved")
+                    flagT2 = false
+                    return}//end if
+                else{
+                    print("input recieved. Value: " + childChoice)
+                    if (childChoice == "0") {
+                        SendT("W:en2")
+                        sleep(4)
+                        calculateStars(action: "nightAthkar")
+                    }//end if
+                        // take first choice (Left sensor)
+                    else if (childChoice == "1") {
+                        SendT("W:evNo")
+                    }//end else if
+                }//end else
+                
+                childChoice = ""
             }//second if
+            if( dateFromSystemTwo != dateFromUserTwo && flagT2 == false && reminderFlag2 == false ){
+                reminderFlag2 = true
+                flagT2 = true
+            }
         }//first if
         print("SomeCoolTaskRunning.....2")//just for test
         print(UserDefaults.standard.string(forKey: "switchBtn2Stat") ?? "No1" )//just for test
         //print(UserDefaults.standard.string(forKey: "switchBtn2Time") ?? "No2")//just for test
     }//end timerAction2
-
+    
     ///////backgeound task for third-3- reminder//////////////////
+    var flagT3 = true
     func startBackgroundTask3() {
         reminderFlag3=true
+        flagT3 = true
         backgroundTask3.startBackgroundTask()
-        timer3 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction3), userInfo: nil, repeats: true)
+        timer3 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.timerAction3), userInfo: nil, repeats: true)
     }//end startBackgroundTask3
     
     func stopBackgroundTask3() {
@@ -325,10 +376,11 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         backgroundTask3.stopBackgroundTask()
     }//end stopBackgroundTask3
     
+    
     func timerAction3() {
         
         if ((UserDefaults.standard.string(forKey: "switchBtn3Stat") == "on") && (datePickerTxt3.text != "") &&
-            (UserDefaults.standard.string(forKey: "switchBtn3Time") != "") && (reminderFlag3)) {
+            (UserDefaults.standard.string(forKey: "switchBtn3Time") != "")){
             //to get user input
             let dateFromUserthird = datePickerTxt3.text
             //to get current date
@@ -343,10 +395,40 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             
             //check if current time equal user input time
             if(dateFromSystemthird == dateFromUserthird){
-                SendT("W:te1")
-                //datePickerTxt5.text="third" //just for test
-                reminderFlag3=false
+                if(reminderFlag3){
+                    print("true3")
+                    SendT("W:te1")
+                    reminderFlag3 = false}
+                
+                sleep(3)
+                
+                childChoice = BleManagerNew.getInstance().recive
+                print("Input recieved " + childChoice)
+                
+                if ( (childChoice == "" || childChoice == "9") && flagT3 ){
+                    SendT("T")
+                    print("No input recieved")
+                    flagT3 = false
+                    return}//end if
+                else{
+                    print("input recieved. Value: " + childChoice)
+                    if (childChoice == "0") {
+                        SendT("W:en3")
+                        sleep(4)
+                        calculateStars(action: "brushingTeeth")
+                    }//end if
+                        // take first choice (Left sensor)
+                    else if (childChoice == "1") {
+                        SendT("W:TeNo")
+                    }//end else if
+                }//end else
+                
+                childChoice = ""
             }//second if
+            if( dateFromSystemthird != dateFromUserthird && flagT3 == false && reminderFlag3 == false ){
+                reminderFlag3 = true
+                flagT3 = true
+            }
         }//first if
         print("SomeCoolTaskRunning.....3")//just for test
         print(UserDefaults.standard.string(forKey: "switchBtn3Stat") ?? "No1" )//just for test
@@ -355,10 +437,12 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     
     ///////backgeound task for forth-4- reminder//////////////////
     
+    var flagT4 = true
     func startBackgroundTask4() {
+        flagT4=true
         reminderFlag4=true
         backgroundTask4.startBackgroundTask()
-        timer4 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction4), userInfo: nil, repeats: true)
+        timer4 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.timerAction4), userInfo: nil, repeats: true)
     }//end startBackgroundTask4
     
     func stopBackgroundTask4() {
@@ -370,7 +454,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     func timerAction4() {
         
         if ((UserDefaults.standard.string(forKey: "switchBtn4Stat") == "on") && (datePickerTxt4.text != "") &&
-            (UserDefaults.standard.string(forKey: "switchBtn4Time") != "") && (reminderFlag4)) {
+            (UserDefaults.standard.string(forKey: "switchBtn4Time") != "")) {
             //to get user input
             let dateFromUserforth = datePickerTxt4.text
             //to get current date
@@ -386,11 +470,41 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             //check if current time equal user input time
             if(dateFromSystemforth == dateFromUserforth){
                 //send notification to the child by blutooth
-                SendT("W:ki1")
-
-                //datePickerTxt5.text="forth" //just for test
-                reminderFlag4=false
+                
+                if(reminderFlag4){
+                    print("true4")
+                    SendT("W:ki1")
+                    reminderFlag4 = false}
+                
+                sleep(3)
+                
+                childChoice = BleManagerNew.getInstance().recive
+                print("Input recieved " + childChoice)
+                
+                if ( (childChoice == "" || childChoice == "9") && flagT4 ){
+                    SendT("T")
+                    print("No input recieved")
+                    flagT4 = false
+                    return}//end if
+                else{
+                    print("input recieved. Value: " + childChoice)
+                    if (childChoice == "0") {
+                        SendT("W:en4")
+                        sleep(4)
+                        calculateStars(action: "kissingParents")
+                    }//end if
+                        // take first choice (Left sensor)
+                    else if (childChoice == "1") {
+                        SendT("W:kiNo")
+                    }//end else if
+                }//end else
+                
+                childChoice = ""
             }//second if
+            if( dateFromSystemforth != dateFromUserforth && flagT4 == false && reminderFlag4 == false ){
+                reminderFlag4 = true
+                flagT4 = true
+            }
         }//first if
         print("SomeCoolTaskRunning.....4")//just for test
         print(UserDefaults.standard.string(forKey: "switchBtn4Stat") ?? "No1" )//just for test
@@ -398,11 +512,12 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     }//end timerAction4
     
     ///////backgeound task for fifth-5- reminder//////////////////
-    
+    var flagT5 = true
     func startBackgroundTask5() {
+        flagT5 = true
         reminderFlag5=true
         backgroundTask5.startBackgroundTask()
-        timer5 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction5), userInfo: nil, repeats: true)
+        timer5 = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.timerAction5), userInfo: nil, repeats: true)
     }//end startBackgroundTask5
     
     func stopBackgroundTask5() {
@@ -414,7 +529,7 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     func timerAction5() {
         
         if ((UserDefaults.standard.string(forKey: "switchBtn5Stat") == "on") && (datePickerTxt5.text != "") &&
-            (UserDefaults.standard.string(forKey: "switchBtn5Time") != "") && (reminderFlag5)) {
+            (UserDefaults.standard.string(forKey: "switchBtn5Time") != "")) {
             //to get user input
             let dateFromUserfifth = datePickerTxt5.text
             //to get current date
@@ -430,11 +545,42 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             //check if current time equal user input time
             if(dateFromSystemfifth == dateFromUserfifth){
                 //send notification to the child by blutooth
-                SendT("W:sl1")
-
-                //datePickerTxt5.text="fifth" //just for test
-                reminderFlag5=false
+                
+                if(reminderFlag5){
+                    print("true5")
+                    SendT("W:sl1")
+                    reminderFlag5 = false}
+                
+                sleep(4)
+                
+                childChoice = BleManagerNew.getInstance().recive
+                print("Input recieved " + childChoice)
+                
+                if ( (childChoice == "" || childChoice == "9") && flagT5 ){
+                    SendT("T")
+                    print("No input recieved")
+                    flagT5 = false
+                    return}//end if
+                else{
+                    print("input recieved. Value: " + childChoice)
+                    if (childChoice == "0") {
+                        SendT("W:en5")
+                        sleep(4)
+                        calculateStars(action: "bedtimeAthkar")
+                    }//end if
+                        // take first choice (Left sensor)
+                    else if (childChoice == "1") {
+                        SendT("W:slNo")
+                    }//end else if
+                }//end else
+                
+                childChoice = ""
             }//second if
+            if( dateFromSystemfifth != dateFromUserfifth && flagT5 == false && reminderFlag5 == false ){
+                reminderFlag5 = true
+                flagT5 = true
+            }
+
         }//first if
         print("SomeCoolTaskRunning.....5")//just for test
         print(UserDefaults.standard.string(forKey: "switchBtn5Stat") ?? "No1" )//just for test
@@ -467,26 +613,11 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
     func calculateStars(action: String) {
         
         totalStars += 1
+        print( "totaaaalstaaars" + String(totalStars) )
         
         // set the number of stars that will be displayed on Basma's screen
-        if (totalStars == 125) {
-            displayedStars = 5
-            // unlock new story
-        }
-        else if (totalStars >= 100) {
-            displayedStars = 4
-        }
-        else if (totalStars >= 75) {
-            displayedStars = 3
-        }
-        else if (totalStars >= 50) {
-            displayedStars = 2
-        }
-        else if (totalStars >= 25) {
-            displayedStars = 1
-        }
-            // if its more than 125, reset the number of stars and start again
-        else if (totalStars > 125) {
+        // if its more than 125, reset the number of stars and start again
+        if (totalStars > 125) {
             displayedStars = 0
             totalStars = 1
             morningStars = 0
@@ -494,8 +625,46 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
             brushTeethStars = 0
             kissParentsStars = 0
             bedtimeStars = 0
+            SendT("S0")
             
         }
+        else if (totalStars == 125) {
+            displayedStars = 5
+            SendT("W:5s")//send to wave
+            sleep(4)
+            SendT("S5")
+            // unlock new story
+        }
+        else if (totalStars >= 100) {
+            displayedStars = 4
+            if(totalStars==100){SendT("W:newS")
+                sleep(4)
+                SendT("S4")}//send to wave
+        }
+        else if (totalStars >= 75) {
+            displayedStars = 3
+            if(totalStars==75){SendT("W:newS")
+                sleep(4)
+                SendT("S3")}//send to wave
+        }
+        else if (totalStars >= 50) {
+            displayedStars = 2
+            if(totalStars==50){SendT("W:newS")
+                sleep(4)
+                SendT("S2")}//send to wave
+        }
+        else if (totalStars >= 25) {
+            displayedStars = 1
+            if(totalStars==25){SendT("W:newS")
+            sleep(4)
+            SendT("S1")}//send to wave
+        }
+        else {
+        displayedStars = 0
+            print("--------------------------- 0 stars")
+            SendT("S0")
+            }
+        
         
         // decide which action was done by the child, and increment it to view it in the chart
         switch action {
@@ -525,9 +694,10 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         UserDefaults.standard.set(bedtimeStars, forKey: "bedtimeStars")
         
         // call it to display updated values
-        updateChart()
-        
-        
+       //  updateChart()
+       // lineChart = nil
+      //  lineChart.clear()
+        createChart()
     } // end calculateStars method
     
     
@@ -687,9 +857,6 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         
     }
 
-    
-    
-    
     
     
     @IBAction func switch1Changed(_ sender: UISwitch){
@@ -861,13 +1028,5 @@ class ParentControlPanel : UIViewController ,BleManagerDelegate{
         
     }
     
-    // a function for sending text to Basma hardware
-    func SendT(_ text: String) {
-        print("SendTextMessage Invoked")
-        let TextData: String
-        TextData = text
-        BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
-    }
-
 
 }
