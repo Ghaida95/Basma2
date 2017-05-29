@@ -13,34 +13,6 @@ class TransferViewController: UIViewController, BleManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-       
-        
-        
-     /*   
-         let displayedStars = UserDefaults.standard.integer(forKey: "displayedStars")
-         var starsMsg = ""
-        
-        switch displayedStars {
-            
-        case 0 :
-            starsMsg = "S0"
-        case 1 :
-            starsMsg = "S1"
-        case 2 :
-            starsMsg = "S2"
-        case 3 :
-            starsMsg = "S3"
-        case 4 :
-            starsMsg = "S4"
-        case 5 :
-            starsMsg = "S5"
-        default :
-            starsMsg = "S0"
-        }
-        
-        //SendT(starsMsg) */
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +20,9 @@ class TransferViewController: UIViewController, BleManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func HelloChild(_ sender: Any) {
+        //SendT("W:First")
+    }
     
     // a function for sending text to Basma hardware
     func SendT(_ text: String) {

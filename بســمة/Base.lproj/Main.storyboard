@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ik-jl-6wU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ik-jl-6wU">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -154,7 +154,7 @@
         <!--Transfer View Controller-->
         <scene sceneID="acF-VQ-3FR">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="1DX-Cg-yUB" customClass="TransferViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transferVC" modalTransitionStyle="crossDissolve" id="1DX-Cg-yUB" customClass="TransferViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DP8-qE-QQw"/>
                         <viewControllerLayoutGuide type="bottom" id="nfy-QX-5gS"/>
@@ -164,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="con2" translatesAutoresizingMaskIntoConstraints="NO" id="Oa9-qI-IZA">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uud-Wf-rB3">
                                 <rect key="frame" x="518" y="0.0" width="506" height="72"/>
@@ -190,6 +190,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="HelloChild:" destination="1DX-Cg-yUB" eventType="touchUpInside" id="Qbn-lP-vvO"/>
                                     <segue destination="pvm-Ev-sso" kind="show" id="J6I-XT-NRZ"/>
                                 </connections>
                             </button>
@@ -214,7 +215,7 @@
         <!--Story Controller-->
         <scene sceneID="BZB-xg-2hN">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="thc-sd-9Tx" customClass="StoryController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="thc-sd-9Tx" customClass="StoryController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t7Q-Il-MMW"/>
                         <viewControllerLayoutGuide type="bottom" id="cgv-Fz-2BL"/>
@@ -231,13 +232,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Rv-ZG-ph0" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="53" y="666" width="123" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8Rv-ZG-ph0" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="611" width="186" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                <state key="normal" title="العودة">
+                                <state key="normal" image="backButton">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -251,19 +251,73 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTy-ep-dRI">
-                                <rect key="frame" x="888" y="655" width="82" height="72"/>
+                                <rect key="frame" x="888" y="645" width="82" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="rightArrow"/>
                                 <connections>
                                     <action selector="rightPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="p9I-WR-1L2"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAR-8f-cBQ">
+                                <rect key="frame" x="803" y="20" width="166" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="cat"/>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="J0E-gY-1hr"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91u-pA-Uyn">
+                                <rect key="frame" x="803" y="185" width="166" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="elephant"/>
+                                <connections>
+                                    <action selector="button2Pressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="4Ha-Q5-6Nk"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="so9-SK-UvV">
+                                <rect key="frame" x="804" y="349" width="166" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="bird"/>
+                                <connections>
+                                    <action selector="bottomButtonPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="5mk-9i-4ma"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qnu-db-pzV">
+                                <rect key="frame" x="20" y="20" width="167" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="sand"/>
+                                <connections>
+                                    <action selector="upLeftPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="jw1-cT-CPX"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyS-lO-XlC">
+                                <rect key="frame" x="20" y="185" width="167" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="air"/>
+                                <connections>
+                                    <action selector="middleLeftPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="WbS-mj-g8o"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I83-ni-GJT">
+                                <rect key="frame" x="19" y="348" width="167" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="water"/>
+                                <connections>
+                                    <action selector="downLeftPressed:" destination="thc-sd-9Tx" eventType="touchUpInside" id="frv-Br-UKZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="downLeftButton" destination="I83-ni-GJT" id="5S1-xU-Mpt"/>
+                        <outlet property="downRightButton" destination="so9-SK-UvV" id="tFT-Ja-H4Y"/>
+                        <outlet property="middleLeftButton" destination="AyS-lO-XlC" id="Iul-rT-VNU"/>
+                        <outlet property="middleRightButton" destination="91u-pA-Uyn" id="prc-wY-lUw"/>
                         <outlet property="nextButton" destination="kTy-ep-dRI" id="kDk-Zg-9Du"/>
                         <outlet property="storyImg" destination="BqG-XR-apP" id="YQZ-eF-tsK"/>
+                        <outlet property="upLeftButton" destination="Qnu-db-pzV" id="k5S-FU-S7d"/>
+                        <outlet property="upRightButton" destination="jAR-8f-cBQ" id="bey-qq-i5f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3M-8e-uwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +348,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="21y-3t-Ikh" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="63" y="686" width="123" height="50"/>
+                                <rect key="frame" x="63" y="659" width="123" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -326,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="-1358.203125" y="2404.6875"/>
         </scene>
-        <!--View Controller-->
+        <!--Unlock Stories-->
         <scene sceneID="Jg2-OU-6re">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="nVr-I2-eZc" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="nVr-I2-eZc" customClass="UnlockStories" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a4G-0C-ecl"/>
                         <viewControllerLayoutGuide type="bottom" id="yC1-dy-99U"/>
@@ -338,16 +392,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storiesmain" translatesAutoresizingMaskIntoConstraints="NO" id="ZqV-i3-e1e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storyUnlocked" translatesAutoresizingMaskIntoConstraints="NO" id="ZqV-i3-e1e">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Oy7-V6-GCp" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="56" y="647" width="123" height="50"/>
+                                <rect key="frame" x="71" y="664" width="123" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                <state key="normal" title="العودة">
+                                <state key="normal" title=" ">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -425,17 +479,17 @@
                                     <segue destination="bec-Bw-AlY" kind="show" id="AP2-ex-t4g"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tree" translatesAutoresizingMaskIntoConstraints="NO" id="BN0-rR-3rW">
-                                <rect key="frame" x="153" y="324" width="89" height="88"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="4zN-dn-eQl">
+                                <rect key="frame" x="276" y="249" width="325" height="241"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1QN-xG-1Mf" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="73" y="317" width="82" height="99"/>
+                                <rect key="frame" x="47" y="320" width="226" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="32"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                <state key="normal" title="سباق الغابة">
+                                <state key="normal">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -457,6 +511,9 @@
                             <constraint firstItem="yC1-dy-99U" firstAttribute="top" secondItem="ZqV-i3-e1e" secondAttribute="bottom" id="agc-To-bcq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lock" destination="4zN-dn-eQl" id="SbH-eM-ZVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8r-Ih-tlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -465,7 +522,7 @@
         <!--Child View Controller-->
         <scene sceneID="oRk-Mo-0aT">
             <objects>
-                <viewController storyboardIdentifier="childHomeVC" modalTransitionStyle="partialCurl" id="wS5-Ai-ymw" customClass="ChildViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="childHomeVC" modalTransitionStyle="crossDissolve" id="wS5-Ai-ymw" customClass="ChildViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Vb-go-LAz"/>
                         <viewControllerLayoutGuide type="bottom" id="Bgi-T6-xbs"/>
@@ -474,16 +531,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="childdmain" translatesAutoresizingMaskIntoConstraints="NO" id="VOt-bJ-zeG">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="childdmain" translatesAutoresizingMaskIntoConstraints="NO" id="VOt-bJ-zeG">
+                                <rect key="frame" x="0.0" y="13" width="1024" height="724"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-bl-MZ2" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="20" y="120" width="247" height="180"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-Td-5Xg">
+                                <rect key="frame" x="0.0" y="0.0" width="491" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="100"/>
+                                <state key="normal" image="ParentGray"/>
+                                <connections>
+                                    <segue destination="bec-Bw-AlY" kind="show" id="PS5-Ve-SeQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-bl-MZ2" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
+                                <rect key="frame" x="17" y="110" width="266" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="90"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                <state key="normal" title="قصة">
+                                <state key="normal" title=" قصتي">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -496,21 +561,13 @@
                                     <segue destination="nVr-I2-eZc" kind="show" id="0gf-x8-8au"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-Td-5Xg">
-                                <rect key="frame" x="0.0" y="0.0" width="491" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ParentGray"/>
-                                <connections>
-                                    <segue destination="bec-Bw-AlY" kind="show" id="PS5-Ve-SeQ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uYU-CB-aG2" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="557" y="120" width="247" height="180"/>
+                                <rect key="frame" x="556" y="119" width="249" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="100"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="90"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                <state key="normal" title="أذكار">
+                                <state key="normal" title="أذكاري">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -540,7 +597,7 @@
         <!--View Controller-->
         <scene sceneID="67f-7i-Rcd">
             <objects>
-                <viewController id="Umy-ie-TtO" customClass="NFCViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Umy-ie-TtO" customClass="NFCViewController" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4V-dk-LHC"/>
                         <viewControllerLayoutGuide type="bottom" id="pQ6-7j-pKe"/>
@@ -550,10 +607,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="child2athkar" translatesAutoresizingMaskIntoConstraints="NO" id="6lx-P0-xlz">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Joc-VR-DL5" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="62" y="679" width="123" height="50"/>
+                                <rect key="frame" x="62" y="654" width="123" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -579,14 +636,24 @@
                                     <segue destination="bec-Bw-AlY" kind="show" id="Z8X-2l-Cyn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1d-oU-k3p" userLabel="nfcButton">
-                                <rect key="frame" x="284" y="473" width="242" height="218"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUU-SE-IzC">
+                                <rect key="frame" x="184" y="415" width="138" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="finger"/>
+                                <state key="normal" image="Untitled-4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="NFCstart:" destination="Umy-ie-TtO" eventType="touchUpInside" id="1LT-Gk-p2p"/>
+                                    <action selector="StartNFC:" destination="Umy-ie-TtO" eventType="touchUpInside" id="uKj-Tj-F2u"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="مرة أخرى" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTU-Rq-L9h">
+                                <rect key="frame" x="163" y="554" width="180" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="40"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -604,7 +671,7 @@
         <!--Parent Control Panel-->
         <scene sceneID="t8b-Uz-BSf">
             <objects>
-                <viewController id="pvm-Ev-sso" customClass="ParentControlPanel" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="pvm-Ev-sso" customClass="ParentControlPanel" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oIJ-wT-d4Y"/>
                         <viewControllerLayoutGuide type="bottom" id="YK9-mw-MOH"/>
@@ -613,7 +680,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addchild1" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-LR-LjC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newParentInterface" translatesAutoresizingMaskIntoConstraints="NO" id="HBK-LR-LjC">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g7l-rT-imj">
@@ -650,27 +717,29 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditingEvening:" destination="pvm-Ev-sso" eventType="editingDidEnd" id="2j8-fF-BLq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ED-GU-FuO">
-                                <rect key="frame" x="543" y="554" width="97" height="30"/>
+                                <rect key="frame" x="543" y="535" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditingBrush:" destination="pvm-Ev-sso" eventType="editingDidEnd" id="MMY-iP-I8K"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-fn-4wd">
-                                <rect key="frame" x="543" y="641" width="97" height="30"/>
+                                <rect key="frame" x="543" y="629" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="946-o1-ExT">
-                                <rect key="frame" x="543" y="718" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditingKiss:" destination="pvm-Ev-sso" eventType="editingDidEnd" id="y0B-bs-BMJ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRF-a4-44S">
                                 <rect key="frame" x="61" y="124" width="99" height="59"/>
@@ -681,18 +750,9 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VqO-vh-q2E">
-                                <rect key="frame" x="456" y="110" width="128" height="128"/>
+                                <rect key="frame" x="451" y="106" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kk-yO-Gj9">
-                                <rect key="frame" x="488" y="-19" width="581" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ChildGray"/>
-                                <connections>
-                                    <action selector="GoToChildViewPressed:" destination="pvm-Ev-sso" eventType="touchUpInside" id="oPF-vY-35N"/>
-                                    <segue destination="wS5-Ai-ymw" kind="show" id="MdC-me-tep"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR2-OV-bJs">
                                 <rect key="frame" x="50" y="121" width="110" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -707,6 +767,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditingMorning:" destination="pvm-Ev-sso" eventType="editingDidEnd" id="bGp-q0-TeF"/>
+                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-d0-MuF">
                                 <rect key="frame" x="613" y="319" width="51" height="31"/>
@@ -722,6 +785,55 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="sAv-OX-MBG">
+                                <rect key="frame" x="48" y="592" width="94" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="love" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-SR-0H6">
+                                <rect key="frame" x="294" y="590" width="94" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brushing" translatesAutoresizingMaskIntoConstraints="NO" id="RpC-2G-4jM">
+                                <rect key="frame" x="222" y="592" width="90" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="evening" translatesAutoresizingMaskIntoConstraints="NO" id="6fP-uD-rfB">
+                                <rect key="frame" x="148" y="597" width="76" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bed" translatesAutoresizingMaskIntoConstraints="NO" id="x6z-fc-KgB">
+                                <rect key="frame" x="389" y="585" width="94" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stars1" translatesAutoresizingMaskIntoConstraints="NO" id="azz-je-UcQ">
+                                <rect key="frame" x="6" y="255" width="69" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kk-yO-Gj9">
+                                <rect key="frame" x="492" y="-13" width="581" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="GoToChildViewPressed:" destination="pvm-Ev-sso" eventType="touchUpInside" id="oPF-vY-35N"/>
+                                    <segue destination="wS5-Ai-ymw" kind="show" id="MdC-me-tep"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ملف طفلك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-cG-dOA">
+                                <rect key="frame" x="69" y="194" width="94" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
+                                <color key="textColor" red="0.8289412260055542" green="0.1607639491558075" blue="0.5841064453125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="946-o1-ExT">
+                                <rect key="frame" x="543" y="718" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditingSleep:" destination="pvm-Ev-sso" eventType="editingDidEnd" id="EVo-5A-fNt"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -757,7 +869,7 @@
         <!--Edit Add Child-->
         <scene sceneID="Xd0-e8-zfB">
             <objects>
-                <viewController id="e5e-jM-YqX" customClass="EditAddChild" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="e5e-jM-YqX" customClass="EditAddChild" customModule="بســمة" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q8y-QS-uXk"/>
                         <viewControllerLayoutGuide type="bottom" id="Qy3-70-d3m"/>
@@ -766,8 +878,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="editadd" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-8w-eyd">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editadd" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-8w-eyd">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWn-ZM-Isv">
                                 <rect key="frame" x="518" y="0.0" width="506" height="72"/>
@@ -822,16 +934,8 @@
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Du0-gr-n24">
-                                <rect key="frame" x="303" y="599" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="unchecked"/>
-                                <connections>
-                                    <action selector="avatarO:" destination="e5e-jM-YqX" eventType="touchUpInside" id="AEK-A7-Lpm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgB-xW-Df4">
-                                <rect key="frame" x="827" y="599" width="37" height="37"/>
+                                <rect key="frame" x="831" y="629" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unchecked"/>
                                 <connections>
@@ -860,11 +964,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-cq-XdW">
-                                <rect key="frame" x="580" y="599" width="37" height="37"/>
+                                <rect key="frame" x="580" y="629" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="unchecked"/>
                                 <connections>
                                     <action selector="avatarTwo:" destination="e5e-jM-YqX" eventType="touchUpInside" id="YWh-3U-NAu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Du0-gr-n24">
+                                <rect key="frame" x="311" y="629" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="unchecked"/>
+                                <connections>
+                                    <action selector="avatarO:" destination="e5e-jM-YqX" eventType="touchUpInside" id="AEK-A7-Lpm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -941,59 +1053,59 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-1F-pc8">
-                                <rect key="frame" x="396" y="395" width="233" height="30"/>
+                                <rect key="frame" x="396" y="396" width="233" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="إعادة">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="16" name=".GeezaProInterface"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <font key="NSOriginalFont" metaFont="system" size="16"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content=" ">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system" size="16"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content="تعيين">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="16" name=".GeezaProInterface"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <font key="NSOriginalFont" metaFont="system" size="16"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content=" ">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system" size="16"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content="الرقم">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="16" name=".GeezaProInterface"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <font key="NSOriginalFont" metaFont="system" size="16"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content=" ">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system" size="16"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
-                                        <fragment content="السرّي">
+                                        <fragment content="السري">
                                             <attributes>
-                                                <color key="NSColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="16" name=".GeezaProInterface"/>
+                                                <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <font key="NSOriginalFont" metaFont="system" size="16"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
@@ -1068,6 +1180,10 @@
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="withoutWord" translatesAutoresizingMaskIntoConstraints="NO" id="R2u-uF-ZP0">
+                                <rect key="frame" x="0.0" y="465" width="240" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0Y-3m-J4i" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
                                 <rect key="frame" x="441" y="420" width="143" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1088,15 +1204,15 @@
                                     <segue destination="bec-Bw-AlY" kind="show" id="ea9-NC-AYk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ماهي عاصمة المملكة العربية السعودية؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9I-fq-YSC">
-                                <rect key="frame" x="347" y="323" width="330" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ماهي عاصمة المملكة العربية السعودية؟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9I-fq-YSC">
+                                <rect key="frame" x="353" y="320" width="330" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="24"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="03H-i6-wPH" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="20" y="522" width="123" height="50"/>
+                                <rect key="frame" x="69" y="530" width="123" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="50"/>
                                 <color key="tintColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1149,7 +1265,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="con1" translatesAutoresizingMaskIntoConstraints="NO" id="ngd-dR-VbW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="connection" translatesAutoresizingMaskIntoConstraints="NO" id="ngd-dR-VbW">
                                 <rect key="frame" x="0.0" y="1" width="1024" height="724"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcm-VO-gvp">
@@ -1157,10 +1273,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nag-g7-THc" customClass="BounceButton" customModule="بســمة" customModuleProvider="target">
-                                <rect key="frame" x="466" y="289" width="93" height="51"/>
+                                <rect key="frame" x="448" y="271" width="129" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99535900349999995" green="0.19306391480000001" blue="0.64660298819999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="39"/>
                                 <state key="normal" title="الاتصال">
                                     <color key="titleColor" red="0.98465835489999998" green="0.98465835489999998" blue="0.98465835489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -1173,9 +1289,16 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ConnectCkick:" destination="t7e-dK-URE" eventType="touchUpInside" id="R7O-1p-RKL"/>
-                                    <segue destination="wS5-Ai-ymw" kind="show" id="b1r-ND-K5a"/>
+                                    <segue destination="1DX-Cg-yUB" kind="show" id="WaB-hg-nim"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="للإتصال ببسمة إضغط الزر " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86V-eG-N5z">
+                                <rect key="frame" x="152" y="160" width="646" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Boahmed-Alhour" family="Boahmed Alhour" pointSize="67"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1188,36 +1311,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzi-pX-Uax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="748"/>
+            <point key="canvasLocation" x="1638.8671875" y="747.65625"/>
         </scene>
     </scenes>
     <resources>
         <image name="1" width="1024" height="768"/>
         <image name="ChildGray" width="506" height="71"/>
         <image name="ParentGray" width="491" height="59"/>
+        <image name="Untitled-4" width="240" height="320"/>
         <image name="add (1)" width="64" height="53"/>
-        <image name="addchild1" width="1024" height="768"/>
+        <image name="air" width="320" height="240"/>
+        <image name="backButton" width="945" height="667"/>
+        <image name="bed" width="66" height="88"/>
+        <image name="bird" width="320" height="240"/>
+        <image name="brushing" width="63" height="88"/>
+        <image name="cat" width="320" height="240"/>
         <image name="child2athkar" width="1024" height="768"/>
         <image name="childdmain" width="1024" height="768"/>
         <image name="code" width="1024" height="768"/>
         <image name="con1" width="1024" height="768"/>
         <image name="con2" width="1024" height="768"/>
+        <image name="connection" width="1024" height="768"/>
         <image name="edit" width="79" height="65"/>
         <image name="editadd" width="1024" height="768"/>
-        <image name="finger" width="512" height="512"/>
+        <image name="elephant" width="320" height="240"/>
+        <image name="evening" width="66" height="88"/>
+        <image name="lock" width="320" height="240"/>
+        <image name="love" width="62" height="88"/>
+        <image name="newParentInterface" width="1024" height="768"/>
         <image name="parent11" width="1024" height="768"/>
         <image name="rightArrow" width="256" height="256"/>
+        <image name="sand" width="320" height="240"/>
+        <image name="stars1" width="66" height="88"/>
         <image name="storieslocked" width="1024" height="768"/>
-        <image name="storiesmain" width="1024" height="768"/>
-        <image name="tree" width="1029" height="1125"/>
+        <image name="storyUnlocked" width="1024" height="768"/>
+        <image name="sun" width="80" height="88"/>
         <image name="unchecked" width="501" height="501"/>
+        <image name="water" width="320" height="240"/>
+        <image name="withoutWord" width="229" height="171"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J6I-XT-NRZ"/>
-        <segue reference="YYj-Ua-gJ5"/>
-        <segue reference="Md3-NS-2jn"/>
-        <segue reference="oA4-tn-G6x"/>
         <segue reference="xYX-rW-1qe"/>
-        <segue reference="AP2-ex-t4g"/>
+        <segue reference="eMH-j7-aC9"/>
+        <segue reference="J6I-XT-NRZ"/>
+        <segue reference="WaB-hg-nim"/>
+        <segue reference="YYj-Ua-gJ5"/>
+        <segue reference="MdC-me-tep"/>
+        <segue reference="PS5-Ve-SeQ"/>
     </inferredMetricsTieBreakers>
 </document>

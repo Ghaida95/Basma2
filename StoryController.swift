@@ -15,6 +15,13 @@ class StoryController: UIViewController, BleManagerDelegate{
     
     @IBOutlet weak var storyImg: UIImageView!
     
+    @IBOutlet weak var upRightButton: UIButton!
+    @IBOutlet weak var middleRightButton: UIButton!
+    @IBOutlet weak var downRightButton: UIButton!
+    
+    @IBOutlet weak var upLeftButton: UIButton!
+    @IBOutlet weak var middleLeftButton: UIButton!
+    @IBOutlet weak var downLeftButton: UIButton!
     
     // define arrays which contain picture names
     
@@ -40,27 +47,41 @@ class StoryController: UIViewController, BleManagerDelegate{
     var timerChild : Timer!
     var flag = true
     
+    // method to handle clicking the next button for the story page
     @IBAction func rightPressed(_ sender: UIButton) {
-        
-        
+
         switch currentImage {
         
-        // here choose between brance 1-a or 1-b
-        case "22" :
-            
+        case "12":
+            upRightButton.setImage(UIImage(named:"cat.png"), for: .normal)
+            middleRightButton.setImage(UIImage(named:"elephant.png"), for: .normal)
+            downRightButton.setImage(UIImage(named:"bird.png"), for: .normal)
+            self.upRightButton.isHidden=false
+            self.middleRightButton.isHidden=false
+            self.downRightButton.isHidden=false
+            // disable next button until recieving input
             nextButton.isEnabled = false
-            SendText("T")
+            imagePosition += 1
+            break
+        // here choose between branch 1-a or 1-b
+        case "22" :
+            sleep(3)
+            // disable next button until recieving touch input from the
+            nextButton.isEnabled = false
             
             if( flag )
             {
             timerChild = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(rightPressed), userInfo: nil, repeats: true)
             flag = false
+                
+                SendText("T")
             }
             
             childChoice = BleManagerNew.getInstance().recive
             
-            if ( childChoice == "" || childChoice == "9" ){
+            if ( childChoice == ""){
                 print("No input recieved")
+                
                 return }
                 
             // if there's input recieved
@@ -72,14 +93,15 @@ class StoryController: UIViewController, BleManagerDelegate{
                     nextButton.isEnabled = true
                 }//else
             
-                // take first choice (Right sensor)
+                // take first choice (Right sensor = 0)
                 if (childChoice == "0") {
                     currentArray = "imagesChoice1_a"
-                    
+                    BleManagerNew.getInstance().recive = ""
                 }
-                    // take first choice (Left sensor)
+                    // take first choice (Left sensor = 1)
                 else if (childChoice == "1") {
                     currentArray = "imagesChoice1_b"
+                    BleManagerNew.getInstance().recive = ""
                 }
                 imagePosition = 0
                 childChoice = ""
@@ -102,22 +124,24 @@ class StoryController: UIViewController, BleManagerDelegate{
                 break
         
             
-        // here choose between brance 2-a or 2-b
+        // here choose between branch 2-a or 2-b
         case "31" :
-            
+            sleep(3)
+            // disable next button until recieving touch input from the child
             nextButton.isEnabled = false
-            SendText("T")
             
             if( flag )
             {
             timerChild = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(rightPressed), userInfo: nil, repeats: true)
             flag = false
+                SendText("T")
             }
             
             childChoice = BleManagerNew.getInstance().recive
             
-            if ( childChoice == "" || childChoice == "9" ){
+            if ( childChoice == ""  ){
                 print("No input recieved")
+                
                 return }
                 
             // if there's input recieved
@@ -132,18 +156,54 @@ class StoryController: UIViewController, BleManagerDelegate{
             // take first choice (Right sensor)
             if (childChoice == "0") {
                 currentArray = "imagesChoice2_a"
+                BleManagerNew.getInstance().recive = ""
                 
             }
                 // take first choice (Left sensor)
             else if (childChoice == "1") {
                 currentArray = "imagesChoice2_b"
+                BleManagerNew.getInstance().recive = ""
             }
             
             imagePosition = 0
             childChoice = ""
             break
         
-        
+        case "39a" :
+            upLeftButton.setImage(UIImage(named:"vegetables.png"), for: .normal)
+            middleLeftButton.setImage(UIImage(named:"meat.png"), for: .normal)
+            downLeftButton.setImage(UIImage(named:"ant.png"), for: .normal)
+            self.upLeftButton.isHidden=false
+            self.middleLeftButton.isHidden=false
+            self.downLeftButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            break
+        case "40a":
+            upLeftButton.setImage(UIImage(named:"sand.png"), for: .normal)
+            middleLeftButton.setImage(UIImage(named:"air.png"), for: .normal)
+            downLeftButton.setImage(UIImage(named:"water.png"), for: .normal)
+            self.upLeftButton.isHidden=false
+            self.middleLeftButton.isHidden=false
+            self.downLeftButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            break
+
+        case "41a":
+            upLeftButton.setImage(UIImage(named:"bigSun.png"), for: .normal)
+            middleLeftButton.setImage(UIImage(named:"earth.png"), for: .normal)
+            downLeftButton.setImage(UIImage(named:"moon.png"), for: .normal)
+            self.upLeftButton.isHidden=false
+            self.middleLeftButton.isHidden=false
+            self.downLeftButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            break
+            
         // check if its one of the two pictures that are the end of the SECOND branch
         case "44a" :
             
@@ -152,14 +212,48 @@ class StoryController: UIViewController, BleManagerDelegate{
             break
             
         // check if its one of the two pictures that are the end of the SECOND branch
+        case "44b" :
+            upRightButton.setImage(UIImage(named:"desert.png"), for: .normal)
+            middleRightButton.setImage(UIImage(named:"sea.png"), for: .normal)
+            downRightButton.setImage(UIImage(named:"forest.png"), for: .normal)
+            self.upRightButton.isHidden=false
+            self.middleRightButton.isHidden=false
+            self.downRightButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            break
+        case "45b" :
+            upRightButton.setImage(UIImage(named:"four.png"), for: .normal)
+            middleRightButton.setImage(UIImage(named:"three.png"), for: .normal)
+            downRightButton.setImage(UIImage(named:"two.png"), for: .normal)
+            self.upRightButton.isHidden=false
+            self.middleRightButton.isHidden=false
+            self.downRightButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            break
+        case "46b" :
+            upRightButton.setImage(UIImage(named:"sea.png"), for: .normal)
+            middleRightButton.setImage(UIImage(named:"camp.png"), for: .normal)
+            downRightButton.setImage(UIImage(named:"village.png"), for: .normal)
+            self.upRightButton.isHidden=false
+            self.middleRightButton.isHidden=false
+            self.downRightButton.isHidden=false
+            // disable next button until recieving input
+            nextButton.isEnabled = false
+            imagePosition += 1
+            
         case "49b" :
             
             currentArray = "imagesArray3"
             imagePosition = 0
             break
-            
+        
+        // LAST picture
         case "53" :
-            storyImg.isHidden = true
+            storyImg.image = UIImage(named: "54");
             nextButton.isHidden = true
             break
             
@@ -169,15 +263,17 @@ class StoryController: UIViewController, BleManagerDelegate{
             break
             
         }
-        
+        // if its not the last picture
+        if(!(currentImage == "53")){
             changeImage(position: imagePosition, currentArray: currentArray)
-
-    }
+        }
+    } // end rightPressed method
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // send first voice for the story
         SendText("W:1")
     }
     
@@ -225,7 +321,59 @@ class StoryController: UIViewController, BleManagerDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    //right buttons
+    @IBAction func upButtonPressed(_ sender: Any) { //cat
+        let alertController = UIAlertController(title: "إجابة خاطئة ", message: "حاولي مرة أخرى", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "محاولة أخرى", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        SendText("W:Try")
+    }
 
+    @IBAction func button2Pressed(_ sender: Any) { //elephant
+        SendText("W:en2")
+        sleep (3)
+        nextButton.isEnabled = true
+        self.upRightButton.isHidden=true
+        self.middleRightButton.isHidden=true
+        self.downRightButton.isHidden=true
+    }
+
+    @IBAction func bottomButtonPressed(_ sender: Any) {//bird
+        let alertController = UIAlertController(title: "إجابة خاطئة ", message: "حاولي مرة أخرى", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "محاولة أخرى", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        SendText("W:Try")
+    }
+    
+    //left buttons
+    
+    @IBAction func upLeftPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "إجابة خاطئة ", message: "حاولي مرة أخرى", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "محاولة أخرى", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        SendText("W:Try")
+    }
+   
+    @IBAction func middleLeftPressed(_ sender: Any) {
+        SendText("W:en2")
+        sleep (3)
+        nextButton.isEnabled = true
+        self.upLeftButton.isHidden=true
+        self.middleLeftButton.isHidden=true
+        self.downLeftButton.isHidden=true
+    }
+    
+    @IBAction func downLeftPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "إجابة خاطئة ", message: "حاولي مرة أخرى", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "محاولة أخرى", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        SendText("W:Try")
+    }
+    
     
     // a function for sending text to Basma hardware
     func SendText(_ text: String) {

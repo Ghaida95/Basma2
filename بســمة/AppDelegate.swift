@@ -16,13 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate , BleManagerDelegate{
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       
         
+        //UserDefaults.standard.set(0, forKey: "totalStars")
+        //UserDefaults.standard.set("", forKey: "Passcode")
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if UserDefaults.standard.string(forKey: "Passcode") == "" {
+        
+        
+        if UserDefaults.standard.string(forKey: "Passcode") == nil {
             
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
             self.window?.rootViewController = initialViewController

@@ -27,10 +27,10 @@ class EditAddChild: UIViewController {
     var BoxOn = UIImage(named: "checked" )
     var BoxOff = UIImage(named: "unchecked" )
     //to set value if one of boxes choosen
-    var IsBoxClicked1: Bool!
-    var IsBoxClicked2: Bool!
-    var IsBoxClicked3: Bool!
-    var IsBoxClicked4: Bool!
+    var IsBoxClicked1 = false
+    var IsBoxClicked2 = false
+    var IsBoxClicked3 = false
+
     
     @IBOutlet weak var childName: UITextField!
     var childN: String!
@@ -38,10 +38,6 @@ class EditAddChild: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //unchecked Box
-        IsBoxClicked1 = false
-        IsBoxClicked2 = false
-        IsBoxClicked3 = false
         //save and edit button
         if UserDefaults.standard.bool(forKey: "SaveButton") == false {
             EditButton.isHidden = true
@@ -66,6 +62,12 @@ class EditAddChild: UIViewController {
             IsBoxClicked1 = true
             IsBoxClicked2 = false
             IsBoxClicked3 = false
+            UserDefaults.standard.set(IsBoxClicked1, forKey: "Box1")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked2, forKey: "Box2")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
+            UserDefaults.standard.synchronize()
         }
         
         if IsBoxClicked1 == true {
@@ -85,6 +87,12 @@ class EditAddChild: UIViewController {
             IsBoxClicked2 = true
             IsBoxClicked3 = false
             IsBoxClicked1 = false
+            UserDefaults.standard.set(IsBoxClicked1, forKey: "Box1")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked2, forKey: "Box2")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
+            UserDefaults.standard.synchronize()
         }
         
         if IsBoxClicked2 == true {
@@ -104,6 +112,12 @@ class EditAddChild: UIViewController {
             IsBoxClicked3 = true
             IsBoxClicked2 = false
             IsBoxClicked1 = false
+            UserDefaults.standard.set(IsBoxClicked1, forKey: "Box1")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked2, forKey: "Box2")
+            UserDefaults.standard.synchronize()
+            UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
+            UserDefaults.standard.synchronize()
         }
         
         if IsBoxClicked3 == true {
@@ -147,12 +161,7 @@ class EditAddChild: UIViewController {
             UserDefaults.standard.synchronize()
             UserDefaults.standard.set(true, forKey: "SaveButton")
             UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked1, forKey: "Box1")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked2, forKey: "Box2")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
-            UserDefaults.standard.synchronize()
+
             //default valuse for stars
             UserDefaults.standard.set(0, forKey: "totalStars")
             UserDefaults.standard.set(0, forKey: "morningStars")
@@ -168,6 +177,10 @@ class EditAddChild: UIViewController {
     
     
     @IBAction func EditButtonWasPressed(_ sender: UIButton) {
+        IsBoxClicked1 = UserDefaults.standard.bool(forKey: "Box1")
+        IsBoxClicked2 = UserDefaults.standard.bool(forKey: "Box2")
+        IsBoxClicked3 = UserDefaults.standard.bool(forKey: "Box3")
+        
         if ( childName.text == "" && !(IsBoxClicked1 || IsBoxClicked2 || IsBoxClicked3) ) {
             
             let alert = UIAlertController(title: "تنبيه", message: " الرجاء إدخال اسم طفلتك واختيار صورة رمزية لها", preferredStyle: UIAlertControllerStyle.alert)
@@ -196,12 +209,6 @@ class EditAddChild: UIViewController {
             UserDefaults.standard.set(childName.text, forKey: "ChildName")
             UserDefaults.standard.synchronize()
             UserDefaults.standard.set(true, forKey: "SaveButton")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked1, forKey: "Box1")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked2, forKey: "Box2")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(IsBoxClicked3, forKey: "Box3")
             UserDefaults.standard.synchronize()
 
             

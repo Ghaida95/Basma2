@@ -21,7 +21,7 @@ class ResetPasscode: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UserDefaults.standard.set( "" , forKey: "Passcode")
         
     }
 

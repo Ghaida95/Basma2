@@ -25,6 +25,7 @@ class REConnectVC: UIViewController,BleManagerDelegate{
             BleManagerNew.getInstance().startScanPeripheral()
             //step 2 start scanning for Peripheral
         }
+
     }
     
     //This invoked on step 2
@@ -59,6 +60,15 @@ class REConnectVC: UIViewController,BleManagerDelegate{
         }
     }
     
+    // a function for sending text to Basma hardware
+    func SendT(_ text: String) {
+        let TextData: String
+        TextData = text
+        BleManagerNew.getInstance().writeValue(data: TextData.data(using: String.Encoding.utf8)!, forCharacteristic: BleManagerNew.getInstance().characteristicForWrite!, type: CBCharacteristicWriteType.withoutResponse)
+        print("SendTextMessage Invoked-- Msg: "+text)
+        
+    }//end sendT func
+    
     
     //This invoked on Step 4 Finding Characteristics Responsilbe for Writing and Reading
     func didDiscoverCharacteritics(_ service: CBService){
@@ -69,6 +79,33 @@ class REConnectVC: UIViewController,BleManagerDelegate{
                 print("Send Characteristic for Writing has been found ")
                 BleManagerNew.getInstance().characteristicForWrite = characteristic
                 
+                SendT("bl")
+                
+                sleep(4)
+                
+                let displayedStars = UserDefaults.standard.integer(forKey: "displayedStars")
+                var starsMsg = ""
+                
+                switch displayedStars {
+                    
+                case 0 :
+                    starsMsg = "S0"
+                case 1 :
+                    starsMsg = "S1"
+                case 2 :
+                    starsMsg = "S2"
+                case 3 :
+                    starsMsg = "S3"
+                case 4 :
+                    starsMsg = "S4"
+                case 5 :
+                    starsMsg = "S5"
+                default :
+                    starsMsg = "S0"
+                }
+                
+                
+                SendT(starsMsg)
             }
             if characteristic.uuid == CBUUID(string: "6E400003-B5A3-F393-E0A9-E50E24DCCA9E") {
                 //this characteristic for recieving data

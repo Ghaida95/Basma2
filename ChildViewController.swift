@@ -15,27 +15,6 @@ class ChildViewController: UIViewController, BleManagerDelegate {
         
         super.viewDidLoad()
 
-        let displayedStars = UserDefaults.standard.integer(forKey: "displayedStars")
-        var starsMsg = ""
-        
-        switch displayedStars {
-            
-        case 0 :
-            starsMsg = "S0"
-        case 1 :
-            starsMsg = "S1"
-        case 2 :
-            starsMsg = "S2"
-        case 3 :
-            starsMsg = "S3"
-        case 4 :
-            starsMsg = "S4"
-        case 5 :
-            starsMsg = "S5"
-        default :
-            starsMsg = "S0"
-        }
-       // SendT(starsMsg)
     }
 
     override func didReceiveMemoryWarning() {

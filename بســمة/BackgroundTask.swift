@@ -31,7 +31,7 @@ class BackgroundTask {
     }
     
     private func playAudio() {
-        print("hi")
+        print("play audio inside background task")
     
     }
 }

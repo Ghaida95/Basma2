@@ -13,6 +13,8 @@
 		474591B81EC9A0A3003D7BCF /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474591B71EC9A0A3003D7BCF /* ChildViewController.swift */; };
 		474591BA1EC9A5CE003D7BCF /* REConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474591B91EC9A5CE003D7BCF /* REConnectVC.swift */; };
 		474591BC1EC9AD56003D7BCF /* NFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474591BB1EC9AD56003D7BCF /* NFCViewController.swift */; };
+		474C46521ECAED6B003AE5B2 /* UnlockStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C46511ECAED6B003AE5B2 /* UnlockStories.swift */; };
+		474C46541ECAFFC7003AE5B2 /* www.Brushez.com-Boahmed Alhour.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 474C46531ECAFF82003AE5B2 /* www.Brushez.com-Boahmed Alhour.ttf */; };
 		47D964701EC0FF7D00C08E6B /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9646F1EC0FF7D00C08E6B /* BleManager.swift */; };
 		47D964721EC1045700C08E6B /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D964711EC1045700C08E6B /* ConnectViewController.swift */; };
 		47D964741EC123B200C08E6B /* BleManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D964731EC123B200C08E6B /* BleManagerDelegate.swift */; };
@@ -57,6 +59,8 @@
 		474591B71EC9A0A3003D7BCF /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = ../ChildViewController.swift; sourceTree = "<group>"; };
 		474591B91EC9A5CE003D7BCF /* REConnectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REConnectVC.swift; sourceTree = "<group>"; };
 		474591BB1EC9AD56003D7BCF /* NFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFCViewController.swift; path = ../NFCViewController.swift; sourceTree = "<group>"; };
+		474C46511ECAED6B003AE5B2 /* UnlockStories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockStories.swift; sourceTree = "<group>"; };
+		474C46531ECAFF82003AE5B2 /* www.Brushez.com-Boahmed Alhour.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "www.Brushez.com-Boahmed Alhour.ttf"; path = "../../../Desktop/Brushez.com-40242-Boahmed Alhour/www.Brushez.com-Boahmed Alhour.ttf"; sourceTree = "<group>"; };
 		47D9646F1EC0FF7D00C08E6B /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
 		47D964711EC1045700C08E6B /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		47D964731EC123B200C08E6B /* BleManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManagerDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		77F4619E1E7AD4BF00431B4A /* بســمة */ = {
 			isa = PBXGroup;
 			children = (
+				474C46531ECAFF82003AE5B2 /* www.Brushez.com-Boahmed Alhour.ttf */,
 				474591B71EC9A0A3003D7BCF /* ChildViewController.swift */,
 				474591BB1EC9AD56003D7BCF /* NFCViewController.swift */,
 				D2ABA0651EB93112007C3465 /* LineChart.swift */,
@@ -149,6 +154,7 @@
 				77F461A11E7AD4BF00431B4A /* ViewController.swift */,
 				47D964711EC1045700C08E6B /* ConnectViewController.swift */,
 				774A87A41EA15CB10030A6FA /* ParentControlPanel.swift */,
+				474C46511ECAED6B003AE5B2 /* UnlockStories.swift */,
 				4722EDDE1EC3638200E8C09C /* StoryController.swift */,
 				7757C5191EBD01A80066F9B1 /* BackgroundTask.swift */,
 				774A87A81EA17DED0030A6FA /* EditAddChild.swift */,
@@ -253,7 +259,7 @@
 				TargetAttributes = {
 					77F4619B1E7AD4BF00431B4A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8C53S77EQB;
+						DevelopmentTeam = 93WK8WG3WV;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -263,13 +269,12 @@
 					};
 					77F461AF1E7AD4C000431B4A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R9SR56F437;
+						DevelopmentTeam = 8C53S77EQB;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 77F4619B1E7AD4BF00431B4A;
 					};
 					77F461BA1E7AD4C000431B4A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = R9SR56F437;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 77F4619B1E7AD4BF00431B4A;
 					};
@@ -300,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474C46541ECAFFC7003AE5B2 /* www.Brushez.com-Boahmed Alhour.ttf in Resources */,
 				77F461AA1E7AD4C000431B4A /* LaunchScreen.storyboard in Resources */,
 				77F461A71E7AD4C000431B4A /* Assets.xcassets in Resources */,
 				77F461A51E7AD4BF00431B4A /* Main.storyboard in Resources */,
@@ -334,6 +340,7 @@
 				77F461A21E7AD4BF00431B4A /* ViewController.swift in Sources */,
 				4722EDDF1EC3638200E8C09C /* StoryController.swift in Sources */,
 				77F461A01E7AD4BF00431B4A /* AppDelegate.swift in Sources */,
+				474C46521ECAED6B003AE5B2 /* UnlockStories.swift in Sources */,
 				47D964741EC123B200C08E6B /* BleManagerDelegate.swift in Sources */,
 				47D964721EC1045700C08E6B /* ConnectViewController.swift in Sources */,
 				474591BC1EC9AD56003D7BCF /* NFCViewController.swift in Sources */,
@@ -497,11 +504,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8C53S77EQB;
+				DEVELOPMENT_TEAM = 93WK8WG3WV;
 				INFOPLIST_FILE = "بســمة/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah-Mohammed";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah-AlGuamei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -512,11 +519,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8C53S77EQB;
+				DEVELOPMENT_TEAM = 93WK8WG3WV;
 				INFOPLIST_FILE = "بســمة/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah-Mohammed";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah-AlGuamei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -528,10 +535,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = R9SR56F437;
+				DEVELOPMENT_TEAM = 8C53S77EQB;
 				INFOPLIST_FILE = "بســمةTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iWAN.------Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah AlGuamei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/بســمة.app/بســمة";
@@ -543,10 +550,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = R9SR56F437;
+				DEVELOPMENT_TEAM = 8C53S77EQB;
 				INFOPLIST_FILE = "بســمةTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iWAN.------Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ghadah AlGuamei";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/بســمة.app/بســمة";
@@ -557,11 +564,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = R9SR56F437;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "بســمةUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iWAN.------UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = GhadahAlGuamei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "بســمة";
 			};
@@ -571,11 +580,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = R9SR56F437;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "بســمةUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iWAN.------UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = GhadahAlGuamei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "بســمة";
 			};
